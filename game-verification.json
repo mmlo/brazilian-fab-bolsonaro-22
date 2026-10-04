@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "checks": [
+    { "kind": "script", "path": "res://test/smoke.gd", "expect": "[SMOKE_PASS]" },
+    { "kind": "script", "path": "res://test/localization.gd", "expect": "[STARVEIL_LOCALIZATION_PASS]" }
+  ]
+}

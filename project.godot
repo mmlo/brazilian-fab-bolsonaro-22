@@ -1,0 +1,50 @@
+; Engine configuration file.
+; Starveil Barrage
+config_version=5
+
+[application]
+config/name="Starveil Barrage"
+config/icon="res://assets/share/favicon.png"
+run/main_scene="res://scenes/title_screen.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0.012, 0.008, 0.025, 1)
+boot_splash/show_image=false
+
+[autoload]
+
+TuningBridge="*res://scripts/manus/preview/tuning_adapter.gd"
+
+ManusFontTheme="*res://autoload/manus_font_theme.gd"
+I18n="*res://autoload/i18n.gd"
+Settings="*res://autoload/settings.gd"
+SaveData="*res://autoload/save_data.gd"
+GameInput="*res://autoload/game_input.gd"
+AudioDirector="*res://autoload/audio_director.gd"
+TuningStore="*res://autoload/tuning_store.gd"
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+
+[gui]
+
+[rendering]
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.008, 0.006, 0.02, 1)
+textures/default_filters/use_nearest_mipmap_filter=false
+
+[audio]
+driver/enable_input=false
+
+[physics]
+common/physics_ticks_per_second=60
+common/max_physics_steps_per_frame=4
+
+[editor]
+import/use_multiple_threads=false

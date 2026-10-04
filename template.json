@@ -1,0 +1,11 @@
+{
+  "id": "game-bullet-hell",
+  "name": "Horizontal Bullet-Hell Shooter (Godot Web)",
+  "description": "A complete horizontal bullet-hell shooter with a corgi pilot, scrolling star graveyard, three combat segments, four distinct bosses, automatic fire, three weapon upgrades, laser and shield abilities, keyboard/touch controls, English/Chinese UI with saved language selection, browser-language detection, Orbitron/Smiley Sans display type with Exo 2 + Noto Sans SC UI fonts, bounded audio, local tuning and Web/PCK delivery.",
+  "capabilities": [
+    "static"
+  ],
+  "kind": "game",
+  "game_genre": "bullet-hell",
+  "status": "ready"
+}

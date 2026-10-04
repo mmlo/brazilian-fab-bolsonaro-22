@@ -1,0 +1,11 @@
+[gd_resource type="FontVariation" load_steps=4 format=3]
+
+[ext_resource type="FontFile" path="res://assets/template/fonts/display/Orbitron-VF.subset.woff2" id="1_latin"]
+[ext_resource type="FontFile" path="res://assets/template/fonts/display/SmileySans-Oblique.subset.woff2" id="2_cjk_display"]
+[ext_resource type="FontVariation" path="res://assets/template/fonts/noto_sans_sc_bold.tres" id="3_cjk"]
+
+[resource]
+resource_name = "Orbitron Bold + Smiley Sans (headings, HUD numbers)"
+base_font = ExtResource("1_latin")
+fallbacks = Array[Font]([ExtResource("2_cjk_display"), ExtResource("3_cjk")])
+variation_opentype = {2003265652: 700}

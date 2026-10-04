@@ -1,0 +1,106 @@
+{
+  "sourceRepository": "manus-ai/manus-sandbox",
+  "sourceCommit": "476a77047bc977b3e23dfb11b035c6cc715539d4",
+  "sourcePath": "sandbox/templates/web-dev-templates/templates/game-bullet-hell",
+  "starterId": "game-bullet-hell-v50",
+  "engineVersion": "4.7.2",
+  "adaptations": [
+    "Versioned Addon identity; legacy starters unchanged",
+    "Assets/Template relocated to assets/template; managed bytes hydrated from their lock",
+    "Previously repaired Figtree mapping retained",
+    "Source audits account for relocated resource definitions and GUT fixture media",
+    "Addon owns preview, release and publication; game guides generated from skill-src",
+    "Card UI fixtures do not race native socket polling",
+    "Native card integration tests select the external service with GAME_CARD_SERVER_SOURCE",
+    "2026-09-25 typography polish: ManusCC0 retired from this revision; template-specific OFL display/body faces plus the Noto Sans SC subset (6,547-codepoint runtime CJK repertoire) ship as subset WOFF2 with adjacent OFL texts, restored from assets.lock.json (asset version 2026.09.25-typography-v1); first launch follows the browser/system language (zh* -> Simplified Chinese) unless a saved choice exists; loaders embed a Noto Sans SC subset."
+  ],
+  "sourceGitBlobs": {
+    ".gitignore": "1b0b2a7f4258d8d865274569d9af6494a76b9e74",
+    "Assets/Template/ai_drone.webp.import": "f912e0bca6357d3624359db5ade5e676b28f4063",
+    "Assets/Template/ai_mothership.webp.import": "322ac3d92e0cf49ff5b702de1725ba8df546b5ec",
+    "Assets/Template/audio/explosion.ogg.import": "385a6dab5fdd9be185f3d66e87b8212a8a16654c",
+    "Assets/Template/audio/hit.ogg.import": "a8f0b913d960cc1b004e2e8a92d069f43d9719cd",
+    "Assets/Template/audio/shoot.ogg.import": "4fced38e1e2e2eb751458039ea6205571119a3ab",
+    "Assets/Template/audio/stargrave_battle.ogg.import": "5e4bc18d3e89bf63016971a10f31627b70bec4dd",
+    "Assets/Template/dog_ship.webp.import": "2a6086dff410b5d19e4ebd8294168b35ef3fa26d",
+    "Assets/Template/elite_boss_barrage.webp.import": "51666572ef8a2169a9d669e47da4e2f1a862765a",
+    "Assets/Template/elite_boss_geometry.webp.import": "4bdbcbf61a5687cdebcdc0fdc7431b729e560199",
+    "Assets/Template/elite_boss_laser.webp.import": "e33f41d15613351a5c414420faf7bd07c560c976",
+    "Assets/Template/fonts/OFL.txt": "0427d1db87f97040016b5954b4892790878beeaa",
+    "Assets/Template/fonts/fusion-pixel-12px-proportional-zh_hans.woff2.import": "085efb874c8333a5b17771bbdfabeb30a2bf094e",
+    "Assets/Template/star_graveyard.webp.import": "34fa07b4169eea4f65a5186cee700029d0400a68",
+    "Assets/Template/star_graveyard_mid.webp.import": "0d290120943c4e9dae4108fda12e2f6248548f67",
+    "Assets/Template/star_graveyard_near.webp.import": "da24280a2d24bae5430251909b721663337cdf39",
+    "README.md": "98bde2a5e5ad34ff819cd0972ece27ed1aa7c0a9",
+    "assets.lock.json": "cc25fdb6a176e42d13269042b91a8590a7ec784c",
+    "export_presets.cfg": "4444f6f4484a3001638a34aafbae29e656744a94",
+    "package.json": "adef93bea21371efa8849b6c4a59b29295bde2a2",
+    "project.godot": "f231415626d024c490d958e6154833b275fab461",
+    "scenes/game.tscn": "467513bbe566be91f46a3f424df4ab51634ddfb6",
+    "scenes/title_screen.tscn": "faafab69c6cf944481b65c1d9405c989601e327a",
+    "scripts/check-exported-pack.mjs": "8166fade5fc95438d293d4903b09267e4af3633f",
+    "scripts/check-game.mjs": "7c076ec6f6552f6f9ad1b9e288506f6ac726a11a",
+    "scripts/check.mjs": "bb9fd8724062edfc924e575de4f66ac9003d944e",
+    "scripts/game.gd": "f48dd4797a23af44216bb7bf80b3256d6bb009a2",
+    "scripts/game.gd.uid": "38fd45648e069a23f0263976f2494f8fc3930794",
+    "scripts/godot-check.mjs": "3ce9ca96ee1525e463cb9e801bc18758547ce680",
+    "scripts/title_screen.gd": "e86d00ae17b9c76e1a0ceda2645b9ba5f5e9563a",
+    "scripts/title_screen.gd.uid": "05298809f9d813b3f001890eb459a8502a4e77e6",
+    "scripts/tuning_defaults.gd": "7ae46dd8faeaf8c1ea71a4c1cb0ee43bafc8bb49",
+    "scripts/tuning_defaults.gd.uid": "049c0eae45484a535e5fa50c6ba866472e9f2388",
+    "template.json": "ac888af3870e3de8303ef421a6a276e4c990861c",
+    "test/debug_capture.gd": "f1357fad8828c2d772a4e518ee49f46de0c8525a",
+    "test/debug_capture.gd.uid": "35b6d1a30253cb9606bcad4dd0e2ebab14c723d1",
+    "test/debug_capture.tscn": "3d81cc731b9d4b62a31fd859a329abbaa0899c6e",
+    "test/english-copy.test.mjs": "bb7945dfcec1e74fd0df34787cd6a5b67c689f33",
+    "test/exported_pack_boot.gd": "a58e6bac6fb35c81825fbb2e5e1c2f913d834143",
+    "test/exported_pack_boot.gd.uid": "423de233d0208db271b51efd9b6badea3ce13ba5",
+    "test/smoke.gd": "a6088df78a2379e534b77db848dfdecfa4df2796",
+    "test/smoke.gd.uid": "f14f2960d44dffd356a78aa921abe7a34e72ee87",
+    "test/template_contract.gd": "286a3752bc2cf7a7572505e62fcc458e4c6192b1",
+    "test/template_contract.gd.uid": "b6ba56b630c0062f73f71053d544469ed6c6c94e"
+  },
+  "parentStarterId": "game-bullet-hell-v49",
+  "maintenanceRepository": "manus-ai/manus-addon-webdev",
+  "fontProvenance": {
+    "family": "Template OFL faces + Noto Sans SC",
+    "files": [
+      "Exo2-VF.subset.woff2",
+      "NotoSansSC-VF.subset.woff2",
+      "Orbitron-VF.subset.woff2",
+      "SmileySans-Oblique.subset.woff2"
+    ],
+    "license": "OFL-1.1 (adjacent <Family>-OFL.txt)",
+    "retired": "ManusCC0 / ManusCC0 Sans CJK SC (earlier revisions only)"
+  },
+  "maintenanceChanges": [
+    "Select the packaged self-contained ManusCC0 Web loading shell with all three approved weights and its license.",
+    "Documentation-only successor: require unused-asset housekeeping before the final checkpoint or publication; inherited gameplay, scenes and media remain unchanged.",
+    "Documentation-only successor: route unresolved new-game asset-production choices through Game Blueprint; preserve the tool-unavailable and existing-game fallback, inherited gameplay, scenes, assets, fonts and locks.",
+    "Bind bundled ManusCC0 composite fonts after first import using a runtime autoload, preserving custom theme styles and explicit font overrides.",
+    "Use finite smoke checks and receipt-verified export paths where legacy starter scripts require them; gameplay and BGM bytes/defaults are preserved.",
+    "Route browser BGM through the canonical independent Web Audio renderer with one-time decoded buffer caching and Godot native fallback; preserve existing soundtrack bytes, gain, mute, pause and transition behavior.",
+    "Add complete English/Simplified Chinese UI catalogs, an accessible EN/CN title selector, English first-launch default, saved language preference and native/export localization checks; preserve gameplay, assets, CC0 fonts and existing save identity.",
+    "2026-09-25 typography polish: ManusCC0 retired from this revision; template-specific OFL display/body faces plus the Noto Sans SC subset (6,547-codepoint runtime CJK repertoire) ship as subset WOFF2 with adjacent OFL texts, restored from assets.lock.json (asset version 2026.09.25-typography-v1); first launch follows the browser/system language (zh* -> Simplified Chinese) unless a saved choice exists; loaders embed a Noto Sans SC subset."
+  ],
+  "typographyMaintenance": {
+    "primaryFamily": "Template display + body OFL faces (assets/template/fonts)",
+    "languageFallbacks": "Noto Sans SC subset at matching weight; system fallback disabled.",
+    "bodyComposites": "assets/template/fonts/ui_{regular,medium,bold}.tres"
+  },
+  "loaderTypography": {
+    "primary": "Embedded Noto Sans SC subset (OFL-1.1)"
+  },
+  "parentFileManifest": "gameStarterFiles.game-bullet-hell-v45.json",
+  "parentFileManifestSha256": "722753de639ccdd20af644bd1856158a75c92d2b6af111a8a95a34322d3fd7b8",
+  "browserBgmMaintenance": {
+    "sourceRepository": "manus-ai/manus-addon-webdev",
+    "helperSources": [
+      "runtime-src/game-dev/godot/browser_bgm_backend.gd",
+      "runtime-src/game-dev/godot/browser_bgm_player.gd"
+    ],
+    "soundtrack": "Unchanged from parent revision",
+    "nativeFallback": "Godot AudioStreamPlayer",
+    "browserRenderer": "Web Audio AudioBufferSourceNode with cached decoded AudioBuffer"
+  }
+}

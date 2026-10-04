@@ -1,0 +1,624 @@
+{
+  "version": 2,
+  "groups": {
+    "art": {
+      "name": "Art",
+      "order": 20
+    },
+    "audio": {
+      "name": "Audio",
+      "order": 30
+    },
+    "share": {
+      "name": "Share",
+      "order": 40
+    },
+    "template": {
+      "name": "Template",
+      "order": 0
+    }
+  },
+  "bundles": {},
+  "assets": {
+    "assets/art/bg_nebula.png": {
+      "path": "/manus-storage/game/sha256/2cd6c82cb250e7fad133de02eb85fdcc7abb59558b6911732c8d5432b939a69c.png",
+      "sha256": "sha256:2cd6c82cb250e7fad133de02eb85fdcc7abb59558b6911732c8d5432b939a69c",
+      "size": 182250,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/big_cyan.png": {
+      "path": "/manus-storage/game/sha256/1e6515ccb43ddcd320b1471d9f01bb04df036e9b30e36b14dcc488e8bcc454bf.png",
+      "sha256": "sha256:1e6515ccb43ddcd320b1471d9f01bb04df036e9b30e36b14dcc488e8bcc454bf",
+      "size": 386,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/big_orange.png": {
+      "path": "/manus-storage/game/sha256/bb632e676563d0a8bb2d6b8686a4170a1b1ed1a470e2f813a6f6e6ee2a041783.png",
+      "sha256": "sha256:bb632e676563d0a8bb2d6b8686a4170a1b1ed1a470e2f813a6f6e6ee2a041783",
+      "size": 382,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/big_pink.png": {
+      "path": "/manus-storage/game/sha256/8060e06f00b6f55d6d263e181cbc9876f473e17a9590639c37970ec3d6ed87b1.png",
+      "sha256": "sha256:8060e06f00b6f55d6d263e181cbc9876f473e17a9590639c37970ec3d6ed87b1",
+      "size": 520,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/big_violet.png": {
+      "path": "/manus-storage/game/sha256/073964c5ebf936f6778b4de920a946acc71ea2e1af5db0692ee5e40874d282f8.png",
+      "sha256": "sha256:073964c5ebf936f6778b4de920a946acc71ea2e1af5db0692ee5e40874d282f8",
+      "size": 478,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/boss_p1.png": {
+      "path": "/manus-storage/game/sha256/8b73bf5dd3cc31a462fdda84efcabed671a69d47cc28301ca3d4831f3884dbce.png",
+      "sha256": "sha256:8b73bf5dd3cc31a462fdda84efcabed671a69d47cc28301ca3d4831f3884dbce",
+      "size": 18249,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/boss_p1_flash.png": {
+      "path": "/manus-storage/game/sha256/a0838c070e305eb99cfe2a9c53e32f110d94cedc1b939aa457d448582af07f23.png",
+      "sha256": "sha256:a0838c070e305eb99cfe2a9c53e32f110d94cedc1b939aa457d448582af07f23",
+      "size": 1181,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/boss_p2.png": {
+      "path": "/manus-storage/game/sha256/5ebd0db8521deb3befc2eeb09e390cbcba08651a7d177651922f86c24cad47b3.png",
+      "sha256": "sha256:5ebd0db8521deb3befc2eeb09e390cbcba08651a7d177651922f86c24cad47b3",
+      "size": 15404,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/boss_p2_flash.png": {
+      "path": "/manus-storage/game/sha256/c764ed884ed9e90117cecb6d0a33288c77cb9a3ac7fa9a81226fb036c1fa17a1.png",
+      "sha256": "sha256:c764ed884ed9e90117cecb6d0a33288c77cb9a3ac7fa9a81226fb036c1fa17a1",
+      "size": 1502,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/boss_p3.png": {
+      "path": "/manus-storage/game/sha256/b9a5a2a82fb570f3a171fec37311efc879429ba12b5e4769ce17028016b8cbae.png",
+      "sha256": "sha256:b9a5a2a82fb570f3a171fec37311efc879429ba12b5e4769ce17028016b8cbae",
+      "size": 14025,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/boss_p3_flash.png": {
+      "path": "/manus-storage/game/sha256/050222e6326f8b0407957487e0a5bf8b9745bdb60cbecc877589890d68987594.png",
+      "sha256": "sha256:050222e6326f8b0407957487e0a5bf8b9745bdb60cbecc877589890d68987594",
+      "size": 1252,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/enemy_carrier.png": {
+      "path": "/manus-storage/game/sha256/7b6946a8d61d293f299b4b15535f2e0c40860bea886dda275668fc65a66d63d4.png",
+      "sha256": "sha256:7b6946a8d61d293f299b4b15535f2e0c40860bea886dda275668fc65a66d63d4",
+      "size": 8505,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/enemy_carrier_flash.png": {
+      "path": "/manus-storage/game/sha256/5a26650b84cf10c5d0452c6e0cac3f6918d2119cc926b5b8eafa7d825a6a7f71.png",
+      "sha256": "sha256:5a26650b84cf10c5d0452c6e0cac3f6918d2119cc926b5b8eafa7d825a6a7f71",
+      "size": 504,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/enemy_drone.png": {
+      "path": "/manus-storage/game/sha256/906e4c63935f0c10b63056fb532092a582328b2d5cf91ac8606be27b676bf6cc.png",
+      "sha256": "sha256:906e4c63935f0c10b63056fb532092a582328b2d5cf91ac8606be27b676bf6cc",
+      "size": 1141,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/enemy_drone_flash.png": {
+      "path": "/manus-storage/game/sha256/0d71e5022854b3a36b120e0b18d93d36d60af12e895d4ca673162f773637598b.png",
+      "sha256": "sha256:0d71e5022854b3a36b120e0b18d93d36d60af12e895d4ca673162f773637598b",
+      "size": 185,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/enemy_frigate.png": {
+      "path": "/manus-storage/game/sha256/2c0cf01d84d9c8708c56bfac74a3f4e18357497cd556dd146015d24c8407c9e9.png",
+      "sha256": "sha256:2c0cf01d84d9c8708c56bfac74a3f4e18357497cd556dd146015d24c8407c9e9",
+      "size": 2792,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/enemy_frigate_flash.png": {
+      "path": "/manus-storage/game/sha256/4d70c94ad3275ebb55e92e2d92474a40cb6cee07793677e7a3f3e0f635466fb0.png",
+      "sha256": "sha256:4d70c94ad3275ebb55e92e2d92474a40cb6cee07793677e7a3f3e0f635466fb0",
+      "size": 275,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/enemy_lancer.png": {
+      "path": "/manus-storage/game/sha256/a3de0a3eb63b67993834c52adb58393ee9ec00bb38e7367125956f063b844c58.png",
+      "sha256": "sha256:a3de0a3eb63b67993834c52adb58393ee9ec00bb38e7367125956f063b844c58",
+      "size": 2390,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/enemy_lancer_flash.png": {
+      "path": "/manus-storage/game/sha256/e7ad033c7d8b8c38d4461612dc770df7f36aea4517c657aad1da9cae364b18a6.png",
+      "sha256": "sha256:e7ad033c7d8b8c38d4461612dc770df7f36aea4517c657aad1da9cae364b18a6",
+      "size": 271,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/item_energy.png": {
+      "path": "/manus-storage/game/sha256/920db117f3cbe28ba4d014c39326c594f02cc25ec4aaa4db467deb0b1860742d.png",
+      "sha256": "sha256:920db117f3cbe28ba4d014c39326c594f02cc25ec4aaa4db467deb0b1860742d",
+      "size": 253,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/item_gem.png": {
+      "path": "/manus-storage/game/sha256/e9bdde1870cc6a1a85ffb93fa2dcd7d74a366141a4662d34fbe49e9322e4a794.png",
+      "sha256": "sha256:e9bdde1870cc6a1a85ffb93fa2dcd7d74a366141a4662d34fbe49e9322e4a794",
+      "size": 308,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/item_star.png": {
+      "path": "/manus-storage/game/sha256/21a43e540b6ca98f6f7a39fbd2ae30eca4063969dae3c7235b27f6423734922e.png",
+      "sha256": "sha256:21a43e540b6ca98f6f7a39fbd2ae30eca4063969dae3c7235b27f6423734922e",
+      "size": 269,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/orb_cyan.png": {
+      "path": "/manus-storage/game/sha256/2815513b2358ee3551eb6fc2e6139975693979aaa98be428be0a4709f3f0fba5.png",
+      "sha256": "sha256:2815513b2358ee3551eb6fc2e6139975693979aaa98be428be0a4709f3f0fba5",
+      "size": 177,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/orb_orange.png": {
+      "path": "/manus-storage/game/sha256/77853f2b3dd5952b7584dcb03f7b579ba8f60a1bb7e792f46d9258a1079e3133.png",
+      "sha256": "sha256:77853f2b3dd5952b7584dcb03f7b579ba8f60a1bb7e792f46d9258a1079e3133",
+      "size": 195,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/orb_pink.png": {
+      "path": "/manus-storage/game/sha256/d5eb3d248b2ab70b50a8aca021cc7a6b8d57a064e2bfa7eae6c18a08907ab40f.png",
+      "sha256": "sha256:d5eb3d248b2ab70b50a8aca021cc7a6b8d57a064e2bfa7eae6c18a08907ab40f",
+      "size": 242,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/orb_violet.png": {
+      "path": "/manus-storage/game/sha256/1f60f9aa2ca5f26ef3525a177a628c37bc1a9e96b129065bafcd1f69aede5b5b.png",
+      "sha256": "sha256:1f60f9aa2ca5f26ef3525a177a628c37bc1a9e96b129065bafcd1f69aede5b5b",
+      "size": 238,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/player.png": {
+      "path": "/manus-storage/game/sha256/8e376aa3b3a08e7c32707cabd40b0a2f67b9cb3951aee6497291b33fa149f694.png",
+      "sha256": "sha256:8e376aa3b3a08e7c32707cabd40b0a2f67b9cb3951aee6497291b33fa149f694",
+      "size": 3236,
+      "assetType": "image",
+      "groupId": "art",
+      "used": true
+    },
+    "assets/art/player_flash.png": {
+      "path": "/manus-storage/game/sha256/e917b4df9f740ca009af0ffcf8873233a88747cc3ad21822985c49b0c6747e63.png",
+      "sha256": "sha256:e917b4df9f740ca009af0ffcf8873233a88747cc3ad21822985c49b0c6747e63",
+      "size": 178,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/rice_cyan.png": {
+      "path": "/manus-storage/game/sha256/2374faf252bb384556671b619c19d0d10a9b15e9afbcf534f71dc6f2aa7509a3.png",
+      "sha256": "sha256:2374faf252bb384556671b619c19d0d10a9b15e9afbcf534f71dc6f2aa7509a3",
+      "size": 233,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/rice_orange.png": {
+      "path": "/manus-storage/game/sha256/cc428ff581169d6019b4810475905e3e7a65e48cad16706925d9c10703e0003b.png",
+      "sha256": "sha256:cc428ff581169d6019b4810475905e3e7a65e48cad16706925d9c10703e0003b",
+      "size": 217,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/rice_pink.png": {
+      "path": "/manus-storage/game/sha256/1ae682be83a8c9e7e0cfde5eccc5126d0578d9bd4642d41806887506b491dd3b.png",
+      "sha256": "sha256:1ae682be83a8c9e7e0cfde5eccc5126d0578d9bd4642d41806887506b491dd3b",
+      "size": 239,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/rice_violet.png": {
+      "path": "/manus-storage/game/sha256/4280377c3e0f412279067b5f58f572021d047eb2a34159ebd72172008290fbec.png",
+      "sha256": "sha256:4280377c3e0f412279067b5f58f572021d047eb2a34159ebd72172008290fbec",
+      "size": 268,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/shot_player.png": {
+      "path": "/manus-storage/game/sha256/14d7e68fb123e38109b79e9800502299de6746c48b486db3cdc4288a52033ec2.png",
+      "sha256": "sha256:14d7e68fb123e38109b79e9800502299de6746c48b486db3cdc4288a52033ec2",
+      "size": 175,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/stargate.png": {
+      "path": "/manus-storage/game/sha256/fa3de8e593a583ca8cf6ab767660428ae134aed01a26bbc57e71cc4e879d551a.png",
+      "sha256": "sha256:fa3de8e593a583ca8cf6ab767660428ae134aed01a26bbc57e71cc4e879d551a",
+      "size": 19288,
+      "assetType": "image",
+      "groupId": "art",
+      "used": false
+    },
+    "assets/art/title_art.png": {
+      "path": "/manus-storage/game/sha256/3129a134e09e557149aed7dd486c46deea4c5699b57b3361517db63164b81367.png",
+      "sha256": "sha256:3129a134e09e557149aed7dd486c46deea4c5699b57b3361517db63164b81367",
+      "size": 386505,
+      "assetType": "image",
+      "groupId": "art",
+      "used": true
+    },
+    "assets/audio/music/boss.ogg": {
+      "path": "/manus-storage/game/sha256/f83bdbe061f2c37d991afd2c78d8b231cde8968d10058868646f9871b270bd03.ogg",
+      "sha256": "sha256:f83bdbe061f2c37d991afd2c78d8b231cde8968d10058868646f9871b270bd03",
+      "size": 1843274,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/music/stage.ogg": {
+      "path": "/manus-storage/game/sha256/91b27ffe657ab5ddbfb2db29857217caba6d21ef2332f3241c2ce2f9aefbb854.ogg",
+      "sha256": "sha256:91b27ffe657ab5ddbfb2db29857217caba6d21ef2332f3241c2ce2f9aefbb854",
+      "size": 1801012,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/sfx/bomb.ogg": {
+      "path": "/manus-storage/game/sha256/bd51db70b5bc33e5c5f9ca4fa1c3d28166a0027ff36dd69082b9e290c1ae4379.ogg",
+      "sha256": "sha256:bd51db70b5bc33e5c5f9ca4fa1c3d28166a0027ff36dd69082b9e290c1ae4379",
+      "size": 21977,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/sfx/boss_break.ogg": {
+      "path": "/manus-storage/game/sha256/f4d85a9ed2e3ee33de6b40f3eee77bc79dcc4623ae2412ee4b4f3f2a768c327c.ogg",
+      "sha256": "sha256:f4d85a9ed2e3ee33de6b40f3eee77bc79dcc4623ae2412ee4b4f3f2a768c327c",
+      "size": 19426,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/sfx/charge.ogg": {
+      "path": "/manus-storage/game/sha256/1f698680a0d8990daf614c98b1f37995995a773c1756184507e1d22993f3feb6.ogg",
+      "sha256": "sha256:1f698680a0d8990daf614c98b1f37995995a773c1756184507e1d22993f3feb6",
+      "size": 14207,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/sfx/combo_up.ogg": {
+      "path": "/manus-storage/game/sha256/1bf7c0f772c98e103d204436d43c04bb5a1e391134606d932b68233663920e66.ogg",
+      "sha256": "sha256:1bf7c0f772c98e103d204436d43c04bb5a1e391134606d932b68233663920e66",
+      "size": 7072,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/sfx/defeat.ogg": {
+      "path": "/manus-storage/game/sha256/d29950a4f5fa5271e111dc7f0dc341d30626157fb223d952bf251b296e696b92.ogg",
+      "sha256": "sha256:d29950a4f5fa5271e111dc7f0dc341d30626157fb223d952bf251b296e696b92",
+      "size": 15725,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/sfx/enemy_fire.ogg": {
+      "path": "/manus-storage/game/sha256/70a47fb942e4b51e412bf791717a65cb26e57de20d30446a449c4edf00a6a78e.ogg",
+      "sha256": "sha256:70a47fb942e4b51e412bf791717a65cb26e57de20d30446a449c4edf00a6a78e",
+      "size": 4992,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/sfx/enemy_hit.ogg": {
+      "path": "/manus-storage/game/sha256/cf325f1d947dd45f1765440351e5af66ecac6f9db8d05dc1764c7cce87dffac2.ogg",
+      "sha256": "sha256:cf325f1d947dd45f1765440351e5af66ecac6f9db8d05dc1764c7cce87dffac2",
+      "size": 4653,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/sfx/energy_full.ogg": {
+      "path": "/manus-storage/game/sha256/5a66f785266b024d34ee24b0f12f7eb91c96c6d96a1c7c9bebbd597cffa95226.ogg",
+      "sha256": "sha256:5a66f785266b024d34ee24b0f12f7eb91c96c6d96a1c7c9bebbd597cffa95226",
+      "size": 9764,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/sfx/explode_big.ogg": {
+      "path": "/manus-storage/game/sha256/43a2ee70e7efe7d0e96aadb9014b8160caa90a63625d10564f5fa7f14df0001f.ogg",
+      "sha256": "sha256:43a2ee70e7efe7d0e96aadb9014b8160caa90a63625d10564f5fa7f14df0001f",
+      "size": 16228,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/sfx/explode_small.ogg": {
+      "path": "/manus-storage/game/sha256/c78cabe07f1b670a4f8aa99cb38026d93ec573f92e6f71b9227a2154e7c235c2.ogg",
+      "sha256": "sha256:c78cabe07f1b670a4f8aa99cb38026d93ec573f92e6f71b9227a2154e7c235c2",
+      "size": 7595,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/sfx/graze.ogg": {
+      "path": "/manus-storage/game/sha256/83328b43c3a16cb80c0be0a01c71cf76ff583820156b48409d8038eead0cbe40.ogg",
+      "sha256": "sha256:83328b43c3a16cb80c0be0a01c71cf76ff583820156b48409d8038eead0cbe40",
+      "size": 4860,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/sfx/pickup.ogg": {
+      "path": "/manus-storage/game/sha256/2bebe119ff24183b5d10208194356adfd6a26d01c8a80773b41b44904f354b1e.ogg",
+      "sha256": "sha256:2bebe119ff24183b5d10208194356adfd6a26d01c8a80773b41b44904f354b1e",
+      "size": 6139,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/sfx/player_hit.ogg": {
+      "path": "/manus-storage/game/sha256/a4f12995dda699f4b325f259457c4a649426e7d9c7ffa68216dc605eed46b4ef.ogg",
+      "sha256": "sha256:a4f12995dda699f4b325f259457c4a649426e7d9c7ffa68216dc605eed46b4ef",
+      "size": 11528,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/sfx/shoot.ogg": {
+      "path": "/manus-storage/game/sha256/292b236ce9435ad53ac7e600ea4f48082f4b4e1edbbf49555393b424f4dc51ac.ogg",
+      "sha256": "sha256:292b236ce9435ad53ac7e600ea4f48082f4b4e1edbbf49555393b424f4dc51ac",
+      "size": 5007,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/sfx/ui_back.ogg": {
+      "path": "/manus-storage/game/sha256/daa67716d92d3800e9e26eb75657241c02133a8b3b0b92ea2e2d9010bcab13fd.ogg",
+      "sha256": "sha256:daa67716d92d3800e9e26eb75657241c02133a8b3b0b92ea2e2d9010bcab13fd",
+      "size": 6464,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/sfx/ui_confirm.ogg": {
+      "path": "/manus-storage/game/sha256/47fcddff47f308659c7f1225af502a32d113ea0caf4013b41759ae723783ae1d.ogg",
+      "sha256": "sha256:47fcddff47f308659c7f1225af502a32d113ea0caf4013b41759ae723783ae1d",
+      "size": 7812,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/sfx/ui_move.ogg": {
+      "path": "/manus-storage/game/sha256/ea12dc27e557a0f9f1bc8a1d433f550264f71c7572245fb4e3e55f6d0f4d2e8e.ogg",
+      "sha256": "sha256:ea12dc27e557a0f9f1bc8a1d433f550264f71c7572245fb4e3e55f6d0f4d2e8e",
+      "size": 4767,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/sfx/victory.ogg": {
+      "path": "/manus-storage/game/sha256/5db02b77834e34ab91401e2cab7d35a9b7a2cfccd0152d3a3a49cdc1da304252.ogg",
+      "sha256": "sha256:5db02b77834e34ab91401e2cab7d35a9b7a2cfccd0152d3a3a49cdc1da304252",
+      "size": 16285,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/audio/sfx/warning.ogg": {
+      "path": "/manus-storage/game/sha256/b546c4bb07f06bb3e22076c4794e0a5067361e3de2667b1ee6c1b22557990f34.ogg",
+      "sha256": "sha256:b546c4bb07f06bb3e22076c4794e0a5067361e3de2667b1ee6c1b22557990f34",
+      "size": 18036,
+      "assetType": "audio",
+      "groupId": "audio",
+      "used": true
+    },
+    "assets/share/favicon.png": {
+      "path": "/manus-storage/game/sha256/bc4bcdfb03b10b224145971b32993759c7e1eeb4f880875b55b13fcf08177227.png",
+      "sha256": "sha256:bc4bcdfb03b10b224145971b32993759c7e1eeb4f880875b55b13fcf08177227",
+      "size": 1126,
+      "assetType": "image",
+      "groupId": "share",
+      "used": true
+    },
+    "assets/share/og.png": {
+      "path": "/manus-storage/game/sha256/dc919c60909fea97346e48908fb0b27319c2b541c7ceb7ee315985b84b39d680.png",
+      "sha256": "sha256:dc919c60909fea97346e48908fb0b27319c2b541c7ceb7ee315985b84b39d680",
+      "size": 1190797,
+      "assetType": "image",
+      "groupId": "share",
+      "used": true
+    },
+    "assets/template/ai_drone.webp": {
+      "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/04/game-template/game-bullet-hell/1.0.1/9670e95c1344c4eea1d82f943ea2ac30805d07158efe06d655bf0d17ec56e3fb/assets/template/ai_drone.webp",
+      "sha256": "sha256:9670e95c1344c4eea1d82f943ea2ac30805d07158efe06d655bf0d17ec56e3fb",
+      "size": 16626,
+      "assetType": "image",
+      "groupId": "template",
+      "used": false
+    },
+    "assets/template/ai_mothership.webp": {
+      "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/04/game-template/game-bullet-hell/1.0.1/670f31e7f3b931a833e15a94a62868b4ceb5b64389e204add69352f56546321f/assets/template/ai_mothership.webp",
+      "sha256": "sha256:670f31e7f3b931a833e15a94a62868b4ceb5b64389e204add69352f56546321f",
+      "size": 80710,
+      "assetType": "image",
+      "groupId": "template",
+      "used": false
+    },
+    "assets/template/audio/explosion.ogg": {
+      "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/04/game-template/game-bullet-hell/1.0.1/ab256dfd22b760c1ccc9f58ecdb06749a2a5b19a42d8f1733539e5850a200975/assets/template/audio/explosion.ogg",
+      "sha256": "sha256:ab256dfd22b760c1ccc9f58ecdb06749a2a5b19a42d8f1733539e5850a200975",
+      "size": 9612,
+      "assetType": "audio",
+      "groupId": "template",
+      "used": false
+    },
+    "assets/template/audio/hit.ogg": {
+      "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/04/game-template/game-bullet-hell/1.0.1/50650c1555ddf26705b9133eda2829a316d4298bcdc39aa3fd282d4aa3468712/assets/template/audio/hit.ogg",
+      "sha256": "sha256:50650c1555ddf26705b9133eda2829a316d4298bcdc39aa3fd282d4aa3468712",
+      "size": 5643,
+      "assetType": "audio",
+      "groupId": "template",
+      "used": false
+    },
+    "assets/template/audio/shoot.ogg": {
+      "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/04/game-template/game-bullet-hell/1.0.1/e3885aefde5f03636e557a0b724d75eb5ae0d63351cac7a1f95426a33ef7940c/assets/template/audio/shoot.ogg",
+      "sha256": "sha256:e3885aefde5f03636e557a0b724d75eb5ae0d63351cac7a1f95426a33ef7940c",
+      "size": 4366,
+      "assetType": "audio",
+      "groupId": "template",
+      "used": false
+    },
+    "assets/template/audio/stargrave_battle.ogg": {
+      "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/04/game-template/game-bullet-hell/1.0.1/5b47f61f2606e87ff310168df75ad466ab2f12fc27521b54a2ab980c4e6dfd07/assets/template/audio/stargrave_battle.ogg",
+      "sha256": "sha256:5b47f61f2606e87ff310168df75ad466ab2f12fc27521b54a2ab980c4e6dfd07",
+      "size": 955207,
+      "assetType": "audio",
+      "groupId": "template",
+      "used": false
+    },
+    "assets/template/dog_ship.webp": {
+      "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/04/game-template/game-bullet-hell/1.0.1/566fb270ab3f8681b18de157ec9a0ca7e7d066c3451d12bb2678de96b0577b27/assets/template/dog_ship.webp",
+      "sha256": "sha256:566fb270ab3f8681b18de157ec9a0ca7e7d066c3451d12bb2678de96b0577b27",
+      "size": 30286,
+      "assetType": "image",
+      "groupId": "template",
+      "used": false
+    },
+    "assets/template/elite_boss_barrage.webp": {
+      "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/04/game-template/game-bullet-hell/1.0.1/7e1e4a6e27f8b4a18932857e806c12ffb7127869b844bb72fcdc4114ad177e86/assets/template/elite_boss_barrage.webp",
+      "sha256": "sha256:7e1e4a6e27f8b4a18932857e806c12ffb7127869b844bb72fcdc4114ad177e86",
+      "size": 67744,
+      "assetType": "image",
+      "groupId": "template",
+      "used": false
+    },
+    "assets/template/elite_boss_geometry.webp": {
+      "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/04/game-template/game-bullet-hell/1.0.1/d306d7625d86b99805218c307d2d5df409ddd8bb1293075799b1832f290724f6/assets/template/elite_boss_geometry.webp",
+      "sha256": "sha256:d306d7625d86b99805218c307d2d5df409ddd8bb1293075799b1832f290724f6",
+      "size": 74986,
+      "assetType": "image",
+      "groupId": "template",
+      "used": false
+    },
+    "assets/template/elite_boss_laser.webp": {
+      "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/04/game-template/game-bullet-hell/1.0.1/dcb226f78cacbe20eb9d8f5159d65ef3eedfc1597a7a84fdd2f273602e335174/assets/template/elite_boss_laser.webp",
+      "sha256": "sha256:dcb226f78cacbe20eb9d8f5159d65ef3eedfc1597a7a84fdd2f273602e335174",
+      "size": 51650,
+      "assetType": "image",
+      "groupId": "template",
+      "used": false
+    },
+    "assets/template/fonts/Exo2-VF.subset.woff2": {
+      "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/25/game-template/game-bullet-hell/2026.09.25-typography-v1/7dd9d9a08bca3097f107c089b8b1f12ed1e99330a04243220f8d187da9f491ed/assets/template/fonts/Exo2-VF.subset.woff2",
+      "sha256": "sha256:7dd9d9a08bca3097f107c089b8b1f12ed1e99330a04243220f8d187da9f491ed",
+      "size": 55012,
+      "assetType": "font",
+      "groupId": "template",
+      "used": true
+    },
+    "assets/template/fonts/NotoSansSC-VF.subset.woff2": {
+      "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/25/game-template/game-generic/2026.09.25-typography-v1/38f4c5f927f746b3dfa4c3a5d7edf0b7a3e828e27438418fa54f9e1565289412/assets/template/fonts/NotoSansSC-VF.subset.woff2",
+      "sha256": "sha256:38f4c5f927f746b3dfa4c3a5d7edf0b7a3e828e27438418fa54f9e1565289412",
+      "size": 1869368,
+      "assetType": "font",
+      "groupId": "template",
+      "used": true
+    },
+    "assets/template/fonts/display/Orbitron-VF.subset.woff2": {
+      "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/25/game-template/game-bullet-hell/2026.09.25-typography-v1/69a22728472ca923cf5d1db95a10cd12f42253e02c8a52696e54941cf5a396bd/assets/template/fonts/display/Orbitron-VF.subset.woff2",
+      "sha256": "sha256:69a22728472ca923cf5d1db95a10cd12f42253e02c8a52696e54941cf5a396bd",
+      "size": 14560,
+      "assetType": "font",
+      "groupId": "template",
+      "used": true
+    },
+    "assets/template/fonts/display/SmileySans-Oblique.subset.woff2": {
+      "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/25/game-template/game-bullet-hell/2026.09.25-typography-v1/04ac66803246e7cb87083903c7ff4fc3ce30d2767d1923735b863d2fe5464789/assets/template/fonts/display/SmileySans-Oblique.subset.woff2",
+      "sha256": "sha256:04ac66803246e7cb87083903c7ff4fc3ce30d2767d1923735b863d2fe5464789",
+      "size": 889852,
+      "assetType": "font",
+      "groupId": "template",
+      "used": true
+    },
+    "assets/template/star_graveyard.webp": {
+      "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/04/game-template/game-bullet-hell/1.0.1/f448356c85ab9fb59fb2edb8a939a28563e0a2c1e255372d8c474c85dccf03fa/assets/template/star_graveyard.webp",
+      "sha256": "sha256:f448356c85ab9fb59fb2edb8a939a28563e0a2c1e255372d8c474c85dccf03fa",
+      "size": 52268,
+      "assetType": "image",
+      "groupId": "template",
+      "used": false
+    },
+    "assets/template/star_graveyard_mid.webp": {
+      "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/04/game-template/game-bullet-hell/1.0.1/7ba46b9df1c9a1042f3fb3bea3691d24c0098dbb167fb1e690904fb8bb0b0c70/assets/template/star_graveyard_mid.webp",
+      "sha256": "sha256:7ba46b9df1c9a1042f3fb3bea3691d24c0098dbb167fb1e690904fb8bb0b0c70",
+      "size": 211018,
+      "assetType": "image",
+      "groupId": "template",
+      "used": false
+    },
+    "assets/template/star_graveyard_near.webp": {
+      "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/04/game-template/game-bullet-hell/1.0.1/681d2776cd436ad57a1876d3d864b28d816e8ef0bb34caadd18610734ea5dabc/assets/template/star_graveyard_near.webp",
+      "sha256": "sha256:681d2776cd436ad57a1876d3d864b28d816e8ef0bb34caadd18610734ea5dabc",
+      "size": 156040,
+      "assetType": "image",
+      "groupId": "template",
+      "used": false
+    }
+  }
+}

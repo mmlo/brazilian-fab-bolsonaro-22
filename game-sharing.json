@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 2,
+  "title": "Starveil Barrage · Aerospace Defense Grid",
+  "description": "An original pixel-art vertical defense shooter: pilot a generic aerospace interceptor, graze meteors, chain near misses and contain a three-phase catastrophic asteroid object.",
+  "defaultCaptions": {
+    "x": "Track the fall, time the intercept and protect the aerospace defense grid in Starveil Barrage.",
+    "facebook": "Starveil Barrage is a pixel-art aerospace-defense bullet-hell remix. Graze hazards to charge your intercept burst, keep the chain alive and contain a three-phase asteroid threat.",
+    "reddit": "I remixed a pixel-art vertical bullet-hell into an aerospace-defense mission with meteors, near misses, charged intercept bursts and a three-phase catastrophic object.",
+    "discord": "Starveil Barrage: steer, graze and burst your way through the Meteor Corridor and Asteroid Front."
+  },
+  "assets": {
+    "og": "assets/share/og.png",
+    "favicon": "assets/share/favicon.png"
+  }
+}

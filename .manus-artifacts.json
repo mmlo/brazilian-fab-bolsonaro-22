@@ -1,0 +1,15 @@
+{
+  "pck_url": "/manus-storage/game/sha256/956563b1fb3dc3724c82ded66c3db141ca1812f2f85d354a12047daec62ba4b3.pck",
+  "wasm_url": "/manus-storage/game/sha256/fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0.wasm",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "source_fingerprint": "sha256:6156e0720c20930604017c1f71b0709dcaaef52decd0341914c76cda38c8b8c3",
+  "template_validation": {
+    "status": "not-required",
+    "template": "game-bullet-hell",
+    "genre": "bullet-hell"
+  },
+  "wasm_sha256": "sha256:fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
+  "wasm_content_encoding": "br",
+  "wasm_encoded_sha256": "sha256:fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
+  "pck_sha256": "sha256:956563b1fb3dc3724c82ded66c3db141ca1812f2f85d354a12047daec62ba4b3"
+}

@@ -1,0 +1,10 @@
+[gd_resource type="FontVariation" load_steps=3 format=3]
+
+[ext_resource type="FontFile" path="res://assets/template/fonts/Exo2-VF.subset.woff2" id="1_primary"]
+[ext_resource type="FontVariation" path="res://assets/template/fonts/noto_sans_sc_medium.tres" id="2_cjk"]
+
+[resource]
+resource_name = "UI medium: Exo 2 500 + Noto Sans SC 500"
+base_font = ExtResource("1_primary")
+fallbacks = Array[Font]([ExtResource("2_cjk")])
+variation_opentype = {2003265652: 500}

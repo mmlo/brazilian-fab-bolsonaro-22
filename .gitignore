@@ -1,0 +1,13 @@
+# Godot import cache and build artifacts
+.godot/
+dist/
+test-output/
+game-captures/
+
+# Node dependencies and logs
+node_modules/
+*.log
+*.tmp
+.DS_Store
+.manus-logs/
+.manus-webdev/
