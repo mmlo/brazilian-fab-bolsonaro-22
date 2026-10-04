@@ -1,6 +1,7 @@
 class_name EnemyTypes
 extends RefCounted
 ## Enemy archetypes. Waves in `stage_1.gd` reference these by id.
+## drone = esquerdistas, lancer = CUT, frigate = MST, carrier = PT. Boss sprites are Lula.
 ##   sprite     texture id (assets/art/<sprite>.png, plus <sprite>_flash.png)
 ##   hp         base hit points (x the enemy_health tuning multiplier)
 ##   radius     collision radius against player shots and the player's hitbox

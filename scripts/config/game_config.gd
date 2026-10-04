@@ -1,7 +1,7 @@
 class_name GameConfig
 extends RefCounted
 ## ------------------------------------------------------------------------
-## STARVEIL BARRAGE — central gameplay configuration.
+## BOLSONARO 22 — central gameplay configuration.
 ## Every number that shapes feel, difficulty and scoring lives here so the game
 ## can be re-tuned without touching the simulation. Stage content (waves, boss
 ## phases, bullet patterns) is data in `scripts/data/stage_1.gd`; enemy

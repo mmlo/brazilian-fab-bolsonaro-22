@@ -3,11 +3,11 @@
 config_version=5
 
 [application]
-config/name="Starveil Barrage"
+config/name="Bolsonaro 22"
 config/icon="res://assets/share/favicon.png"
 run/main_scene="res://scenes/title_screen.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-boot_splash/bg_color=Color(0.012, 0.008, 0.025, 1)
+boot_splash/bg_color=Color(0.01, 0.04, 0.02, 1)
 boot_splash/show_image=false
 
 [autoload]
@@ -36,7 +36,7 @@ window/stretch/aspect="keep"
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.008, 0.006, 0.02, 1)
+environment/defaults/default_clear_color=Color(0.008, 0.03, 0.016, 1)
 textures/default_filters/use_nearest_mipmap_filter=false
 
 [audio]

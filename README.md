@@ -1,14 +1,13 @@
-# Starveil Barrage · Aerospace Defense Grid
+# Bolsonaro 22 · Força Aérea Brasileira
 
-An original pixel-art **vertical aerospace-defense shooter** built with Godot 4 (Web export, 2D only).
-Pilot a generic Brazilian aerospace-defense interceptor, protect the airspace from meteors and asteroids,
-graze hazards to charge your INTERCEPT BURST, keep your CHAIN alive, and contain the three-phase Impact Crown.
+Jogo vertical de **defesa aérea** em pixel art, feito com Godot 4 (exportação Web, só 2D).
+Você pilota um caça da FAB com **Bolsonaro 22** escrito na fuselagem. As ondas são esquerdistas, CUT e MST/PT.
+O chefe, em três fases, é o Lula.
 
-🎮 **Play Online**: [https://mmlo.github.io/starveil-barrage/](https://mmlo.github.io/starveil-barrage/)
+🎮 **Play Online**: [https://mmlo.github.io/brazilian-fab-bolsonaro-22/](https://mmlo.github.io/brazilian-fab-bolsonaro-22/)
 
-This remix keeps the Manus 2D bullet-hell starter's responsive movement, automatic fire, dense patterns,
-charged burst, bilingual UI and local best-score loop while changing the setting to a futuristic, institutional
-defense mission. It does not depict real people, political parties, candidates, slogans or propaganda.
+O remake mantém o movimento, o tiro automático, os padrões, a rajada, a interface em dois idiomas e o recorde local
+do modelo Manus. A temática é a defesa do espaço aéreo brasileiro.
 
 ## How to play
 
@@ -26,8 +25,7 @@ Neutralized threats extend the chain too. Each 40 chain links add +1.0x to the s
 The chain breaks if 2.6 s pass with no neutralization or near miss, and it also breaks when you are hit.
 A full gauge unleashes a defensive shock ring that converts every hazard into score shards.
 
-The sector has three threat waves (Aurora Watch, Meteor Corridor, Asteroid Front) followed by a three-phase
-catastrophic object: **Atmospheric Entry**, **Fragmentation Spiral** and **Impact Cascade**.
+The sector has three waves (Esquerdistas, CUT, MST e PT) followed by three boss phases: **Palanque**, **Comício** and **Última trincheira**.
 A full run takes about 3.5 minutes. On the results screen you get a rank from S to D, and your local best is saved.
 
 ## Project map

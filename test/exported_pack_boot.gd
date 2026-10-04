@@ -45,11 +45,11 @@ func _run() -> void:
 			return
 	var previous_locale := String(locale_service.call("get_locale"))
 	locale_service.call("set_locale", "zh-CN")
-	if String(locale_service.call("t", "pause.title")) != "防卫暂停":
+	if String(locale_service.call("t", "pause.title")) != "防空暂停":
 		_fail("packed Chinese UI copy did not resolve")
 		return
 	locale_service.call("set_locale", "en")
-	if String(locale_service.call("t", "pause.title")) != "DEFENSE PAUSED":
+	if String(locale_service.call("t", "pause.title")) != "DEFESA PAUSADA":
 		_fail("packed English UI copy did not resolve")
 		return
 	locale_service.call("set_locale", previous_locale)

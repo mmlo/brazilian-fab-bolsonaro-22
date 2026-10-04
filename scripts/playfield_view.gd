@@ -165,13 +165,13 @@ func _draw_glow() -> void:
 	# Player engine glow
 	if game.player_alive:
 		var fl := 0.7 + 0.3 * sin(game.sim_time * 50.0)
-		glow.draw_circle(game.player_pos + Vector2(-4, 15), 2.0 * fl, Color(0.3, 0.9, 1.0, 0.6))
-		glow.draw_circle(game.player_pos + Vector2(4, 15), 2.0 * fl, Color(0.3, 0.9, 1.0, 0.6))
+		glow.draw_circle(game.player_pos + Vector2(-6, 34), 2.4 * fl, Color(0.2, 0.85, 0.28, 0.7))
+		glow.draw_circle(game.player_pos + Vector2(6, 34), 2.4 * fl, Color(1.0, 0.82, 0.15, 0.65))
 	# Boss core glow
 	if game.boss_active and game.boss_phase >= 0:
 		var core := game.boss_pos + Vector2(0, 2)
 		var p := 0.5 + 0.5 * sin(game.sim_time * (3.0 + game.boss_phase * 2.0))
-		var col := Color(1.0, 0.3, 0.7, 0.10 + 0.10 * p + game.boss_phase * 0.05)
+		var col := Color(0.9, 0.12, 0.14, 0.12 + 0.10 * p + game.boss_phase * 0.05)
 		glow.draw_circle(core, 12.0 + game.boss_phase * 4.0 + p * 3.0, col)
 
 # ------------------------------------------------------------------ top layer
@@ -201,9 +201,9 @@ func _draw_top() -> void:
 		var blink: bool = game.player_invuln > 0.0 and fmod(game.player_invuln, 0.16) < 0.07 and not game.burst_active
 		# thruster pixels
 		var fl := int(game.sim_time * 30.0) % 3
-		for sx: float in [-4.0, 3.0]:
-			top.draw_rect(Rect2((pp + Vector2(sx, 14)).round(), Vector2(2, 2 + fl)), Color(0.6, 1.0, 1.0, 0.9))
-			top.draw_rect(Rect2((pp + Vector2(sx, 16 + fl)).round(), Vector2(2, 2)), Color(0.2, 0.6, 1.0, 0.6))
+		for sx: float in [-6.0, 5.0]:
+			top.draw_rect(Rect2((pp + Vector2(sx, 32)).round(), Vector2(2, 3 + fl)), Color(0.45, 1.0, 0.35, 0.95))
+			top.draw_rect(Rect2((pp + Vector2(sx, 35 + fl)).round(), Vector2(2, 3)), Color(1.0, 0.8, 0.15, 0.75))
 		if not blink:
 			var ptex: Texture2D = tex["player"]
 			var sq := 1.0 - absf(game.bank) * 0.12
@@ -233,9 +233,9 @@ func _draw_top() -> void:
 		var k: float = clampf(game.burst_t / C.BURST_DURATION, 0, 1)
 		var r := (1.0 - pow(1.0 - k, 3.0)) * C.BURST_RADIUS
 		var a := 1.0 - k
-		top.draw_arc(game.burst_origin, r, 0, TAU, 72, Color(0.7, 1.0, 1.0, a), 3.0)
-		top.draw_arc(game.burst_origin, maxf(1.0, r - 6.0), 0, TAU, 72, Color(1, 1, 1, a * 0.6), 1.0)
-		top.draw_arc(game.burst_origin, r * 0.7, 0, TAU, 60, Color(0.5, 0.9, 1.0, a * 0.35), 1.0)
+		top.draw_arc(game.burst_origin, r, 0, TAU, 72, Color(0.25, 0.9, 0.35, a), 3.0)
+		top.draw_arc(game.burst_origin, maxf(1.0, r - 6.0), 0, TAU, 72, Color(1.0, 0.86, 0.2, a * 0.7), 1.0)
+		top.draw_arc(game.burst_origin, r * 0.7, 0, TAU, 60, Color(0.15, 0.45, 0.9, a * 0.35), 1.0)
 	# Screen flash
 	if game.flash_t > 0.0 and Settings.effects_high:
 		var fc: Color = game.flash_color

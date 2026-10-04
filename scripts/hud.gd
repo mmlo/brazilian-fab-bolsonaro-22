@@ -56,7 +56,7 @@ func _draw_left() -> void:
 	var w := 334.0
 	# Logo
 	U.draw_panel(self, Rect2(x, 16, w, 86), U.VIOLET)
-	U.draw_text(self, I18n.t("game.title_short"), Vector2(x + 18, 58), 30, U.TEXT, "title")
+	U.draw_text(self, I18n.t("game.title_short"), Vector2(x + 18, 58), 22, U.TEXT, "title")
 	var sub_title := I18n.t("brand.sub")
 	U.draw_text(self, sub_title, Vector2(x + 20, 86), 13, Color(U.CYAN, 0.8), "display")
 	# Score
@@ -71,13 +71,15 @@ func _draw_left() -> void:
 	# Lives
 	U.draw_panel(self, Rect2(x, 260, w, 70))
 	U.draw_text(self, I18n.t("hud.lives"), Vector2(x + 18, 302), 14, U.MUTED, "bold")
+	var icon_h := 34.0
+	var icon_w := icon_h * life_icon.get_width() / maxf(1.0, life_icon.get_height())
 	for i in range(C.PLAYER_LIVES):
-		var px := x + 120 + i * 40
-		var mod := Color.WHITE if i < game.lives else Color(0.25, 0.25, 0.4, 0.5)
-		draw_texture(life_icon, Vector2(px, 280), mod)
+		var px := x + 128 + i * (icon_w + 10)
+		var mod := Color.WHITE if i < game.lives else Color(0.25, 0.32, 0.28, 0.5)
+		draw_texture_rect(life_icon, Rect2(px, 274, icon_w, icon_h), false, mod)
 	# Burst
 	var full: bool = game.energy >= C.ENERGY_MAX
-	var bcol := U.CYAN if full else Color(0.3, 0.75, 1.0)
+	var bcol := U.CYAN if full else Color(0.15, 0.55, 0.28)
 	U.draw_panel(self, Rect2(x, 340, w, 118), U.CYAN if full else U.LINE)
 	U.draw_text(self, I18n.t("hud.burst"), Vector2(x + 18, 370), 14, U.MUTED, "bold")
 	var pct := int(game.energy / C.ENERGY_MAX * 100.0)
@@ -298,7 +300,7 @@ func _warning(o: CanvasItem, pf_x: float, pf_w: float) -> void:
 			o.draw_colored_polygon(clipped, Color(1.0, 0.25, 0.35, 0.85 * a))
 			sx += 40.0
 	var blink := 0.55 + 0.45 * sin(st * 12.0)
-	U.draw_text(o, "WARNING", Vector2(pf_x, y + 16), 46, Color(1.0, 0.3, 0.38, a * blink), "title", HORIZONTAL_ALIGNMENT_CENTER, pf_w)
+	U.draw_text(o, I18n.t("hud.warning"), Vector2(pf_x, y + 16), 46, Color(1.0, 0.3, 0.38, a * blink), "title", HORIZONTAL_ALIGNMENT_CENTER, pf_w)
 	U.draw_text(o, I18n.t("warning.sub"), Vector2(pf_x, y + 38), 15, Color(1, 0.85, 0.88, a), "bold", HORIZONTAL_ALIGNMENT_CENTER, pf_w)
 
 func _ease(x: float) -> float:

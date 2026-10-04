@@ -3,17 +3,17 @@ extends RefCounted
 ## Starveil pixel UI kit: one palette, hard-edged chamfered panels and text helpers
 ## shared by the HUD, menus and title screen.
 
-const INK := Color(0.035, 0.03, 0.09)
-const PANEL := Color(0.06, 0.05, 0.14, 0.94)
-const PANEL_HI := Color(0.12, 0.10, 0.26, 0.96)
-const LINE := Color(0.33, 0.28, 0.58)
-const CYAN := Color(0.37, 0.95, 1.0)
-const GOLD := Color(1.0, 0.81, 0.35)
-const PINK := Color(1.0, 0.31, 0.64)
-const VIOLET := Color(0.62, 0.45, 1.0)
-const RED := Color(1.0, 0.33, 0.38)
-const TEXT := Color(0.93, 0.95, 1.0)
-const MUTED := Color(0.56, 0.57, 0.76)
+const INK := Color(0.02, 0.05, 0.03)
+const PANEL := Color(0.03, 0.09, 0.06, 0.94)
+const PANEL_HI := Color(0.06, 0.16, 0.09, 0.96)
+const LINE := Color(0.16, 0.42, 0.26)
+const CYAN := Color(0.18, 0.82, 0.36)
+const GOLD := Color(1.0, 0.84, 0.16)
+const PINK := Color(0.95, 0.78, 0.12)
+const VIOLET := Color(0.12, 0.28, 0.62)
+const RED := Color(0.86, 0.14, 0.16)
+const TEXT := Color(0.94, 0.97, 0.92)
+const MUTED := Color(0.55, 0.68, 0.58)
 
 static var _fonts := {}
 

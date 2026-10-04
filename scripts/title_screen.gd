@@ -115,12 +115,13 @@ func _draw() -> void:
 	var zh := I18n.get_locale() == "zh-CN"
 	var appear := clampf(t / 0.8, 0, 1)
 	var ly := 150.0 - (1.0 - appear) * 20.0
-	var main := I18n.t("brand.zh") if zh else "STARVEIL"
+	var main := I18n.t("brand.zh") if zh else I18n.t("game.title_short")
 	var sub := I18n.t("brand.sub")
 	var glow := 0.5 + 0.5 * sin(t * 2.0)
+	var main_size := 48 if main.length() > 8 else 84
 	for k in range(3):
-		U.draw_text(self, main, Vector2(86 + k * 2, ly + 4 + k * 2), 84, Color(U.PINK, 0.25 * appear), "title", HORIZONTAL_ALIGNMENT_LEFT, -1, false)
-	U.draw_text(self, main, Vector2(86, ly), 84, Color(1, 1, 1, appear), "title", HORIZONTAL_ALIGNMENT_LEFT, -1, false)
+		U.draw_text(self, main, Vector2(86 + k * 2, ly + 4 + k * 2), main_size, Color(U.PINK, 0.25 * appear), "title", HORIZONTAL_ALIGNMENT_LEFT, -1, false)
+	U.draw_text(self, main, Vector2(86, ly), main_size, Color(1, 1, 1, appear), "title", HORIZONTAL_ALIGNMENT_LEFT, -1, false)
 	draw_rect(Rect2(90, ly + 22, 440 * appear, 4), Color(U.CYAN, appear))
 	draw_rect(Rect2(90, ly + 28, 300 * appear, 2), Color(U.PINK, appear * 0.8))
 	U.draw_text(self, sub, Vector2(92, ly + 66), 26, Color(U.CYAN, appear * (0.75 + 0.25 * glow)), "display")

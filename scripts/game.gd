@@ -1,7 +1,7 @@
 class_name StarveilGame
 extends Node2D
 ## ------------------------------------------------------------------------
-## STARVEIL BARRAGE — aerospace defense controller (simulation + flow).
+## BOLSONARO 22 — FAB defense controller (simulation + flow).
 ## Rendering lives in PlayfieldView (low-res pixel playfield) and Hud (full-res
 ## panels/text); menus in scripts/ui. Tunables: GameConfig. Content: StageData.
 ## ------------------------------------------------------------------------
@@ -562,7 +562,7 @@ func _update_player(dt: float) -> void:
 		try_burst()
 
 func _fire_player() -> void:
-	var p := player_pos + Vector2(0, -10)
+	var p := player_pos + Vector2(0, -30)
 	if focus:
 		for ox: float in C.FOCUS_OFFSETS:
 			_add_shot(p + Vector2(ox, 0), Vector2(0, -C.SHOT_SPEED), C.SHOT_DAMAGE * C.FOCUS_DAMAGE_MULT, false)

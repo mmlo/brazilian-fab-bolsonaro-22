@@ -1,7 +1,7 @@
 class_name StageData
 extends RefCounted
 ## ------------------------------------------------------------------------
-## STAGE 1 — "Aerospace Defense Grid". Pure data: edit freely to re-author the level.
+## STAGE 1 — espaço aéreo do Brasil. Pure data: edit freely to re-author the level.
 ##
 ## WAVES: each wave is a timeline of spawn events (seconds since wave start).
 ##   enemy   id from EnemyTypes          path   dive | curve | stop | sweep

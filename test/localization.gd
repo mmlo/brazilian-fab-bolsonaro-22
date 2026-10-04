@@ -47,7 +47,7 @@ func _run() -> void:
 	for key: String in used:
 		_check(en.has(key), "key used by code exists in catalog: " + key)
 	# Locale switching, persistence and fallback
-		_check(i18n.set_locale("zh-CN") and i18n.t("pause.title") == "防卫暂停", "Chinese resolves")
+		_check(i18n.set_locale("zh-CN") and i18n.t("pause.title") == "防空暂停", "Chinese resolves")
 	_check(i18n.t("hud.phase", {"n": 2}) == "第 2 阶段", "Chinese placeholders render")
 	_check(i18n.save_succeeded, "language choice persisted")
 	var restarted := LocaleService.new()
@@ -69,7 +69,7 @@ func _run() -> void:
 	restarted.free()
 	_check(LocaleService.locale_for_system("zh_CN") == "zh-CN" and LocaleService.locale_for_system("en_US") == "en", "browser/system language auto-detect")
 	i18n.set_locale("en")
-	_check(i18n.t("pause.title") == "DEFENSE PAUSED" and i18n.t("tuning.label.ship_speed") == "Aircraft speed", "English resolves")
+	_check(i18n.t("pause.title") == "DEFESA PAUSADA" and i18n.t("tuning.label.ship_speed") == "Velocidade da aeronave", "English resolves")
 	# restore
 	if had_saved:
 		var fa := FileAccess.open(LocaleService.SAVE_PATH, FileAccess.WRITE)

@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "title": "Starveil Barrage · Aerospace Defense Grid",
-  "description": "An original pixel-art vertical defense shooter: pilot a generic aerospace interceptor, graze meteors, chain near misses and contain a three-phase catastrophic asteroid object.",
+  "title": "Bolsonaro 22 · Força Aérea Brasileira",
+  "description": "Jogo vertical de defesa aérea: pilote o caça da FAB com Bolsonaro 22 contra esquerdistas, CUT, MST, PT e Lula.",
   "defaultCaptions": {
-    "x": "Track the fall, time the intercept and protect the aerospace defense grid in Starveil Barrage.",
-    "facebook": "Starveil Barrage is a pixel-art aerospace-defense bullet-hell remix. Graze hazards to charge your intercept burst, keep the chain alive and contain a three-phase asteroid threat.",
-    "reddit": "I remixed a pixel-art vertical bullet-hell into an aerospace-defense mission with meteors, near misses, charged intercept bursts and a three-phase catastrophic object.",
-    "discord": "Starveil Barrage: steer, graze and burst your way through the Meteor Corridor and Asteroid Front."
+    "x": "Caça da FAB, Bolsonaro 22, contra PT, CUT, MST e Lula.",
+    "facebook": "Bolsonaro 22 é um jogo de defesa aérea da FAB. Raspe os tiros, carregue a rajada e derrube esquerdistas, CUT, MST, PT e Lula.",
+    "reddit": "Remake de um jogo vertical: caça da FAB escrito Bolsonaro 22 contra PT, CUT, MST e Lula.",
+    "discord": "Bolsonaro 22: piloto da FAB contra esquerdistas, CUT, MST, PT e Lula."
   },
   "assets": {
     "og": "assets/share/og.png",
