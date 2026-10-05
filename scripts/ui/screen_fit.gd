@@ -105,40 +105,47 @@ func _layout_compact() -> void:
 		_layout_landscape()
 
 func _layout_portrait() -> void:
-	var top_h := dp(92)
-	var bot_h := dp(128)
+	var top_h := dp(74)
 	top_bar = Rect2(safe.position.x, safe.position.y, safe.size.x, top_h)
-	var avail := Rect2(safe.position.x + dp(4), safe.position.y + top_h, safe.size.x - dp(8), safe.size.y - top_h - bot_h)
-	_place_playfield(avail, true)
-	var cy := safe.end.y - bot_h * 0.50
-	focus_r = dp(46)
-	burst_r = dp(52)
-	focus_c = Vector2(safe.position.x + dp(64), cy)
-	burst_c = Vector2(safe.end.x - dp(64), cy)
-	pause_r = dp(22)
-	pause_c = Vector2(safe.end.x - dp(30), safe.position.y + dp(24))
+	focus_r = dp(44)
+	burst_r = dp(48)
+	pause_r = dp(18)
+	var edge := dp(10)
+	var foot := dp(6)
+	var cy := safe.end.y - foot - burst_r
+	burst_c = Vector2(safe.end.x - burst_r - edge, cy)
+	focus_c = Vector2(safe.position.x + focus_r + edge, cy)
+	pause_c = Vector2(safe.end.x - pause_r - edge, safe.position.y + pause_r + dp(2))
+	var button_top := minf(focus_c.y - focus_r, burst_c.y - burst_r)
+	var avail_y := safe.position.y + top_h + dp(2)
+	var avail := Rect2(safe.position.x + dp(2), avail_y, safe.size.x - dp(4), maxf(dp(80), button_top - dp(8) - avail_y))
+	# Slack sits a little toward the thumbs, so the ship stays near the buttons.
+	_place_playfield(avail, 0.62)
 
 func _layout_landscape() -> void:
-	var col := dp(156)
 	var margin := dp(4)
-	var avail_h := safe.size.y - margin * 2.0
-	var ideal := avail_h / PF.y
-	var play_w := PF.x * ideal
-	var room := safe.size.x - play_w - dp(12)
-	col = clampf(room * 0.5, dp(112), dp(210))
-	var avail := Rect2(safe.position.x + col, safe.position.y + margin, safe.size.x - col * 2.0, avail_h)
-	_place_playfield(avail, false)
-	left_col = Rect2(safe.position.x, safe.position.y, maxf(8.0, playfield.position.x - safe.position.x - dp(4)), safe.size.y)
-	right_col = Rect2(playfield.end.x + dp(4), safe.position.y, maxf(8.0, safe.end.x - playfield.end.x - dp(4)), safe.size.y)
-	var cx := right_col.position.x + right_col.size.x * 0.5
-	burst_r = minf(dp(42), right_col.size.x * 0.36)
-	focus_r = burst_r * 0.84
-	burst_c = Vector2(cx, right_col.end.y - burst_r - dp(6))
-	focus_c = Vector2(cx, burst_c.y - burst_r - focus_r - dp(12))
-	pause_r = dp(18)
-	pause_c = Vector2(right_col.end.x - pause_r - dp(4), right_col.position.y + pause_r + dp(4))
+	var avail := Rect2(safe.position.x + dp(6), safe.position.y + margin, safe.size.x - dp(12), safe.size.y - margin * 2.0)
+	_place_playfield(avail, 0.5)
+	left_col = Rect2(safe.position.x, safe.position.y, maxf(8.0, playfield.position.x - safe.position.x - dp(6)), safe.size.y)
+	right_col = Rect2(playfield.end.x + dp(6), safe.position.y, maxf(8.0, safe.end.x - playfield.end.x - dp(6)), safe.size.y)
+	burst_r = minf(dp(48), maxf(dp(34), right_col.size.x * 0.30))
+	focus_r = minf(dp(44), burst_r * 0.92)
+	var burst_x := safe.end.x - burst_r - dp(8)
+	var min_x := playfield.end.x + dp(8) + burst_r
+	var max_x := safe.end.x - burst_r - dp(4)
+	burst_x = burst_x if min_x > max_x else clampf(burst_x, min_x, max_x)
+	burst_c = Vector2(burst_x, safe.end.y - burst_r - dp(6))
+	var focus_y := burst_c.y - burst_r - focus_r - dp(10)
+	pause_r = minf(dp(20), maxf(dp(16), right_col.size.x * 0.18))
+	var pause_x := safe.end.x - pause_r - dp(8)
+	var pause_min := playfield.end.x + dp(6) + pause_r
+	var pause_max := safe.end.x - pause_r - dp(4)
+	pause_x = pause_x if pause_min > pause_max else clampf(pause_x, pause_min, pause_max)
+	pause_c = Vector2(pause_x, safe.position.y + pause_r + dp(4))
+	var focus_floor := pause_c.y + pause_r + focus_r + dp(8)
+	focus_c = Vector2(burst_x, maxf(focus_y, focus_floor))
 
-func _place_playfield(avail: Rect2, pin_top: bool) -> void:
+func _place_playfield(avail: Rect2, anchor_y: float) -> void:
 	var raw := minf(avail.size.x / PF.x, avail.size.y / PF.y)
 	raw = maxf(raw, 0.5)
 	var snapped := floorf(raw)
@@ -147,5 +154,5 @@ func _place_playfield(avail: Rect2, pin_top: bool) -> void:
 	scale = raw
 	var sz := PF * scale
 	var x := avail.position.x + (avail.size.x - sz.x) * 0.5
-	var y := avail.position.y if pin_top else avail.position.y + (avail.size.y - sz.y) * 0.5
+	var y := avail.position.y + (avail.size.y - sz.y) * clampf(anchor_y, 0.0, 1.0)
 	playfield = Rect2(x, y, sz.x, sz.y)

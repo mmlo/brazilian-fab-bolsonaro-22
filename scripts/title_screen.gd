@@ -122,23 +122,33 @@ func _layout_ui(fit: ScreenFit) -> void:
 		lang_btn.position = fit.origin + Vector2(1110, 22)
 		lang_btn.apply_metrics(16, Vector2(150, 42))
 		return
-	var bw := minf(fit.safe.size.x - fit.dp(28), fit.dp(420 if fit.portrait else 340))
-	if not fit.portrait:
-		bw = minf(bw, fit.safe.size.x * 0.46)
 	var gap := fit.dp(8)
 	var start_h := fit.dp(58 if fit.portrait else 46)
 	var row_h := fit.dp(50 if fit.portrait else 40)
+	var bw := minf(fit.safe.size.x - fit.dp(28), fit.dp(420))
+	if not fit.portrait:
+		var px_btn := int(fit.dp(15))
+		var label_w := 0.0
+		for id: String in buttons:
+			label_w = maxf(label_w, U.text_width((buttons[id] as PixelButton).text, px_btn, "bold"))
+		bw = clampf(label_w + fit.dp(56), fit.dp(210), fit.safe.size.x * 0.44)
 	menu.add_theme_constant_override("separation", int(gap))
 	for id: String in buttons:
 		var h := start_h if id == "start" else row_h
-		(buttons[id] as PixelButton).apply_metrics(int(fit.dp(18 if id == "start" else 15)), Vector2(bw, h))
+		var btn := buttons[id] as PixelButton
+		btn.alignment = HORIZONTAL_ALIGNMENT_CENTER
+		btn.clip_text = true
+		btn.apply_metrics(int(fit.dp(18 if fit.portrait and id == "start" else 15)), Vector2(bw, h))
+		btn.size = Vector2(bw, h)
+	menu.size = Vector2(bw, start_h + row_h * 3.0 + gap * 3.0)
 	if fit.portrait:
-		var block := start_h + row_h * 3.0 + gap * 3.0
+		var block := menu.size.y
 		menu.position = Vector2(fit.safe.position.x + (fit.safe.size.x - bw) * 0.5, fit.safe.position.y + fit.safe.size.y * 0.40)
 		if menu.position.y + block > fit.safe.end.y - fit.dp(90):
 			menu.position.y = fit.safe.end.y - fit.dp(90) - block
 	else:
-		menu.position = Vector2(fit.safe.end.x - bw - fit.dp(12), fit.safe.position.y + fit.dp(56))
+		var below_lang := fit.safe.position.y + fit.dp(8) + fit.dp(40) + fit.dp(14)
+		menu.position = Vector2(fit.safe.end.x - bw - fit.dp(16), below_lang)
 	lang_btn.apply_metrics(int(fit.dp(14)), Vector2(fit.dp(118), fit.dp(40)))
 	lang_btn.position = Vector2(fit.safe.end.x - fit.dp(130), fit.safe.position.y + fit.dp(8))
 
@@ -212,7 +222,7 @@ func _draw_compact(fit: ScreenFit) -> void:
 		U.draw_text(self, I18n.t("game.title_short"), Vector2(fit.safe.position.x, ly), title_px, Color(1, 1, 1, appear), "title", HORIZONTAL_ALIGNMENT_CENTER, fit.safe.size.x)
 		U.draw_text(self, I18n.t("brand.sub"), Vector2(fit.safe.position.x, ly + fit.dp(28)), int(fit.dp(13)), Color(U.CYAN, appear), "display", HORIZONTAL_ALIGNMENT_CENTER, fit.safe.size.x)
 		U.draw_text(self, I18n.t("title.tagline"), Vector2(fit.safe.position.x + fit.dp(16), ly + fit.dp(52)), int(fit.dp(13)), Color(U.TEXT, appear * 0.9), "medium", HORIZONTAL_ALIGNMENT_CENTER, fit.safe.size.x - fit.dp(32))
-		_faction_strip(Rect2(fit.safe.position.x + fit.dp(8), ly + fit.dp(78), fit.safe.size.x - fit.dp(16), fit.dp(86)), int(fit.dp(11)))
+		_faction_strip(Rect2(fit.safe.position.x + fit.dp(8), ly + fit.dp(68), fit.safe.size.x - fit.dp(16), fit.dp(236)), int(fit.dp(12)))
 		var br := Rect2(fit.safe.position.x + fit.dp(16), fit.safe.end.y - fit.dp(78), fit.safe.size.x - fit.dp(32), fit.dp(64))
 		_best_plate(br, int(fit.dp(13)), int(fit.dp(22)))
 	else:
@@ -221,7 +231,7 @@ func _draw_compact(fit: ScreenFit) -> void:
 		U.draw_text(self, I18n.t("game.title_short"), Vector2(fit.safe.position.x + fit.dp(12), ly), int(fit.dp(26)), Color(1, 1, 1, appear), "title", HORIZONTAL_ALIGNMENT_LEFT, left_w)
 		U.draw_text(self, I18n.t("brand.sub"), Vector2(fit.safe.position.x + fit.dp(12), ly + fit.dp(24)), int(fit.dp(12)), Color(U.CYAN, appear), "display")
 		U.draw_text(self, I18n.t("title.tagline"), Vector2(fit.safe.position.x + fit.dp(12), ly + fit.dp(46)), int(fit.dp(12)), Color(U.TEXT, appear * 0.9), "medium", HORIZONTAL_ALIGNMENT_LEFT, left_w - fit.dp(16))
-		_faction_strip(Rect2(fit.safe.position.x + fit.dp(12), ly + fit.dp(62), left_w - fit.dp(24), fit.dp(78)), int(fit.dp(11)))
+		_faction_strip(Rect2(fit.safe.position.x + fit.dp(12), ly + fit.dp(56), left_w - fit.dp(24), fit.dp(156)), int(fit.dp(11)))
 		var br := Rect2(fit.safe.position.x + fit.dp(12), fit.safe.end.y - fit.dp(62), left_w - fit.dp(24), fit.dp(52))
 		_best_plate(br, int(fit.dp(12)), int(fit.dp(18)))
 	if leaving > 0.0:
@@ -236,23 +246,45 @@ func _best_plate(br: Rect2, label_px: int, value_px: int) -> void:
 		U.draw_text(self, I18n.t("res.rank") + " " + SaveData.best_rank, Vector2(br.position.x + 14, br.position.y + label_px + 8), label_px, U.TEXT, "bold", HORIZONTAL_ALIGNMENT_RIGHT, br.size.x - 28)
 
 func _faction_strip(area: Rect2, label_px := 11) -> void:
-	var n := FactionMarks.ALL.size()
-	var gap := maxf(4.0, label_px * 0.4)
-	var label_h := float(label_px) + 6.0
-	var cell := (area.size.x - gap * (n - 1)) / n
-	if cell < 12.0:
+	var rows: Array = FactionMarks.ALL
+	var n := rows.size()
+	if n == 0 or area.size.x < 12.0 or area.size.y < 12.0:
 		return
-	var fh := minf(cell / 1.5, area.size.y - label_h)
-	if fh < 10.0:
+	var gap := maxf(4.0, float(label_px) * 0.45)
+	var label_h := float(label_px) + 4.0
+	var per_row := n
+	var row_count := 1
+	var h1 := _flag_row_height(area.size, n, 1, gap, label_h)
+	var per2 := int(ceil(float(n) / 2.0))
+	var h2 := _flag_row_height(area.size, per2, 2, gap, label_h)
+	if h2 > h1 * 1.12:
+		row_count = 2
+		per_row = per2
+	var fh := h2 if row_count == 2 else h1
+	if fh < 8.0:
 		return
 	var fw := fh * 1.5
-	var total := n * fw + (n - 1) * gap
-	var x := area.position.x + (area.size.x - total) * 0.5
 	var y := area.position.y
-	for row: Array in FactionMarks.ALL:
-		FactionMarks.draw(self, str(row[0]), Rect2(x, y, fw, fh))
-		U.draw_text(self, str(row[1]), Vector2(x - 6, y + fh + label_h - 2.0), label_px, U.TEXT, "bold", HORIZONTAL_ALIGNMENT_CENTER, fw + 12)
-		x += fw + gap
+	var index := 0
+	for _r in row_count:
+		var count := mini(per_row, n - index)
+		var total := float(count) * fw + float(maxi(count - 1, 0)) * gap
+		var x := area.position.x + (area.size.x - total) * 0.5
+		for _i in count:
+			var row: Array = rows[index]
+			FactionMarks.draw(self, str(row[0]), Rect2(x, y, fw, fh))
+			U.draw_text(self, str(row[1]), Vector2(x - 8, y + fh + label_h - 1.0), label_px, U.TEXT, "bold", HORIZONTAL_ALIGNMENT_CENTER, fw + 16)
+			x += fw + gap
+			index += 1
+		y += fh + label_h + gap * 0.35
+
+func _flag_row_height(area: Vector2, per_row: int, rows: int, gap: float, label_h: float) -> float:
+	if per_row < 1 or rows < 1:
+		return 0.0
+	var cell := (area.x - gap * float(per_row - 1)) / float(per_row)
+	var fh := cell / 1.5
+	var band := (area.y - gap * 0.35 * float(rows - 1)) / float(rows)
+	return minf(fh, band - label_h)
 
 func _fmt(v: int) -> String:
 	var s := str(v)

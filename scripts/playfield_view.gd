@@ -59,7 +59,7 @@ func _draw_enemy_flag(e) -> void:
 	if str(e.flag) == "":
 		return
 	var big: bool = str(e.kind) == "carrier" or str(e.kind) == "frigate"
-	var sz := Vector2(22, 14) if big else Vector2(15, 10)
+	var sz := Vector2(28, 18) if big else Vector2(18, 12)
 	var lift := float(e.data["radius"]) + sz.y * 0.35
 	var bob := sin(game.sim_time * 7.0 + float(e.pos.x) * 0.15) * 0.8
 	var at := Vector2(e.pos) + Vector2(-sz.x * 0.5, -lift - sz.y + bob)
@@ -124,14 +124,14 @@ func _draw() -> void:
 			visible = false
 		if visible:
 			var bob := sin(game.sim_time * 5.0) * 0.6
-			FactionMarks.draw(self, "pt", Rect2(bp + Vector2(-18, -38 + bob), Vector2(36, 24)))
+			FactionMarks.draw(self, "pt", Rect2(bp + Vector2(-20, -66 + bob), Vector2(40, 26)))
 			_centered(bt, bp)
 			if game.boss_flash > 0.0:
 				_centered(tex[game.boss_sprite + "_flash"], bp, Color(1, 1, 1, 0.42))
-			FactionMarks.draw(self, "cut", Rect2(bp + Vector2(-100, -6 + bob), Vector2(18, 12)))
-			FactionMarks.draw(self, "mst", Rect2(bp + Vector2(82, -6 - bob), Vector2(18, 12)))
-			FactionMarks.draw(self, "mtst", Rect2(bp + Vector2(-78, 10), Vector2(14, 9)))
-			FactionMarks.draw(self, "pcdob", Rect2(bp + Vector2(64, 10), Vector2(14, 9)))
+			FactionMarks.draw(self, "cut", Rect2(bp + Vector2(-118, -20 + bob), Vector2(24, 16)))
+			FactionMarks.draw(self, "mst", Rect2(bp + Vector2(94, -20 - bob), Vector2(24, 16)))
+			FactionMarks.draw(self, "mtst", Rect2(bp + Vector2(-110, 18), Vector2(20, 13)))
+			FactionMarks.draw(self, "pcdob", Rect2(bp + Vector2(90, 18), Vector2(20, 13)))
 	# Player shots
 	var st: Texture2D = tex["shot_player"]
 	for s in game.shots:

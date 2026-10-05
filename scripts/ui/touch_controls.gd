@@ -127,7 +127,10 @@ func _draw() -> void:
 	draw_rect(Rect2(fit.pause_c + Vector2(-bar_w * 1.6, -bar_h * 0.5), Vector2(bar_w, bar_h)), PixelUI.TEXT)
 	draw_rect(Rect2(fit.pause_c + Vector2(bar_w * 0.55, -bar_h * 0.5), Vector2(bar_w, bar_h)), PixelUI.TEXT)
 	if fit.compact and fit.portrait:
-		PixelUI.draw_text(self, I18n.t("touch.drag_hint"), Vector2(fit.safe.position.x, fit.safe.end.y - fit.dp(16)), int(fit.dp(12)), Color(PixelUI.TEXT, 0.7), "medium", HORIZONTAL_ALIGNMENT_CENTER, fit.safe.size.x)
+		var hint_y := fit.playfield.end.y + fit.dp(14)
+		var button_top := minf(fit.focus_c.y - fit.focus_r, fit.burst_c.y - fit.burst_r)
+		if hint_y < button_top - fit.dp(6):
+			PixelUI.draw_text(self, I18n.t("touch.drag_hint"), Vector2(fit.safe.position.x, hint_y), int(fit.dp(12)), Color(PixelUI.TEXT, 0.7), "medium", HORIZONTAL_ALIGNMENT_CENTER, fit.safe.size.x)
 
 func _pad(center: Vector2, radius: float, color: Color, full: bool, pulse: float) -> void:
 	draw_circle(center, radius, Color(0.03, 0.02, 0.08, 0.72))
