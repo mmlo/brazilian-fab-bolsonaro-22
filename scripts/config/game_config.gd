@@ -27,7 +27,8 @@ const PLAYER_BOUNDS := Rect2(8, 14, 254, 336)
 const PLAYER_LIVES := 3
 const RESPAWN_INVULN := 2.8
 const DEATH_RESPAWN_DELAY := 0.85
-const TOUCH_DRAG_GAIN := 0.62 # logical px moved per screen px of finger drag
+# Touch and mouse drags move the ship 1:1 with the finger on the displayed
+# playfield (screen px / current display scale). See StarveilGame.add_touch_drag.
 
 # --- Player weapon -----------------------------------------------------------
 const FIRE_INTERVAL := 0.075

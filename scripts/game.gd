@@ -32,6 +32,7 @@ class Enemy:
 	var fires: Array = [] # [{spec, timer, left, state}]
 	var burst_hit := false
 	var dead := false
+	var flag := ""
 
 class Shot:
 	var pos := Vector2.ZERO
@@ -173,6 +174,8 @@ var god_mode := false # test only
 var god_hits := 0 # would-be hits absorbed in god mode (difficulty metric)
 var debug_start := "" # debug builds only: "boss" | "wave2" | "wave3" via ?start=...
 var debug_phase := 0 # debug builds only: ?phase=2|3 starts the boss at that phase
+var layout: ScreenFit
+var _flag_n := 0
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -182,6 +185,8 @@ func _ready() -> void:
 	TuningStore.begin_run()
 	_read_debug_flags()
 	_build_nodes()
+	get_viewport().size_changed.connect(_relayout)
+	_relayout()
 	AudioDirector.play_music("stage", true)
 	_set_state("intro")
 
@@ -285,7 +290,10 @@ func _process(delta: float) -> void:
 	else:
 		shake = 0.0
 		shake_offset = Vector2.ZERO
-	pf_rect.position = C.PF_ORIGIN + shake_offset
+	if layout == null:
+		_relayout()
+	pf_rect.position = layout.playfield.position + shake_offset
+	pf_rect.size = layout.playfield.size
 	flash_t = maxf(0.0, flash_t - delta)
 	view.queue_redraw()
 	hud.queue_redraw()
@@ -310,10 +318,19 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif mb.button_index == MOUSE_BUTTON_RIGHT and mb.pressed:
 			GameInput.virtual_bomb = true
 	elif event is InputEventMouseMotion and drag_active:
-		drag_delta += (event as InputEventMouseMotion).relative * 0.5
+		drag_delta += (event as InputEventMouseMotion).relative / _display_scale()
 
 func add_touch_drag(screen_delta: Vector2) -> void:
-	drag_delta += screen_delta * C.TOUCH_DRAG_GAIN
+	drag_delta += screen_delta / _display_scale()
+
+func _display_scale() -> float:
+	return maxf(layout.scale, 0.01) if layout != null else float(C.PF_SCALE)
+
+func _relayout() -> void:
+	layout = ScreenFit.capture(self)
+	if pf_rect != null and layout != null:
+		pf_rect.position = layout.playfield.position + shake_offset
+		pf_rect.size = layout.playfield.size
 
 func set_paused(value: bool) -> void:
 	if state == "results":
@@ -687,6 +704,8 @@ func _spawn_enemy(ev: Dictionary, x_frac: float) -> void:
 			e.pos = Vector2(x_frac * C.PF_W, -24)
 			e.heading = PI * 0.5
 	e.origin_x = e.pos.x
+	e.flag = FactionMarks.for_kind(e.kind, _flag_n)
+	_flag_n += 1
 	for key: String in ["fire", "fire2"]:
 		if ev.has(key):
 			var spec: Dictionary = ev[key]

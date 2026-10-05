@@ -14,6 +14,8 @@ var settings: SettingsPanel
 var lang_btn: PixelButton
 var leaving := -1.0
 var leave_target := ""
+var _layout_sig := ""
+var _view := Vector2(1280, 720)
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -58,6 +60,7 @@ func _ready() -> void:
 		buttons["settings"].grab_focus())
 	I18n.locale_changed.connect(func(_l: String) -> void: _refresh())
 	_refresh()
+	_layout_ui(ScreenFit.capture(self))
 	buttons["start"].grab_focus.call_deferred()
 	AudioDirector.play_music("stage")
 	if OS.is_debug_build() and OS.has_feature("web"):
@@ -86,12 +89,15 @@ func _leave(training: bool) -> void:
 
 func _process(delta: float) -> void:
 	t += delta
+	var fit := ScreenFit.capture(self)
+	_view = fit.view
+	_layout_ui(fit)
 	for i in range(stars.size()):
 		var s: Vector3 = stars[i]
 		s.y += (10.0 + s.z * s.z * 60.0) * delta
-		if s.y > 722:
+		if s.y > _view.y + 2.0:
 			s.y = -2
-			s.x = randf() * 1280
+			s.x = randf() * _view.x
 		stars[i] = s
 	if leaving >= 0.0:
 		leaving += delta
@@ -100,7 +106,55 @@ func _process(delta: float) -> void:
 			leaving = -10.0
 	queue_redraw()
 
+func _layout_ui(fit: ScreenFit) -> void:
+	var sig := "%s|%s|%s|%s" % [fit.view, fit.compact, fit.portrait, fit.safe]
+	if sig == _layout_sig:
+		return
+	_layout_sig = sig
+	if settings != null and settings.visible:
+		settings.apply_fit(fit)
+	if not fit.compact:
+		menu.position = fit.origin + Vector2(92, 318)
+		menu.add_theme_constant_override("separation", 12)
+		for id: String in buttons:
+			var h := 60.0 if id == "start" else 50.0
+			(buttons[id] as PixelButton).apply_metrics(24 if id == "start" else 20, Vector2(340, h))
+		lang_btn.position = fit.origin + Vector2(1110, 22)
+		lang_btn.apply_metrics(16, Vector2(150, 42))
+		return
+	var bw := minf(fit.safe.size.x - fit.dp(28), fit.dp(420 if fit.portrait else 340))
+	if not fit.portrait:
+		bw = minf(bw, fit.safe.size.x * 0.46)
+	var gap := fit.dp(8)
+	var start_h := fit.dp(58 if fit.portrait else 46)
+	var row_h := fit.dp(50 if fit.portrait else 40)
+	menu.add_theme_constant_override("separation", int(gap))
+	for id: String in buttons:
+		var h := start_h if id == "start" else row_h
+		(buttons[id] as PixelButton).apply_metrics(int(fit.dp(18 if id == "start" else 15)), Vector2(bw, h))
+	if fit.portrait:
+		var block := start_h + row_h * 3.0 + gap * 3.0
+		menu.position = Vector2(fit.safe.position.x + (fit.safe.size.x - bw) * 0.5, fit.safe.position.y + fit.safe.size.y * 0.40)
+		if menu.position.y + block > fit.safe.end.y - fit.dp(90):
+			menu.position.y = fit.safe.end.y - fit.dp(90) - block
+	else:
+		menu.position = Vector2(fit.safe.end.x - bw - fit.dp(12), fit.safe.position.y + fit.dp(56))
+	lang_btn.apply_metrics(int(fit.dp(14)), Vector2(fit.dp(118), fit.dp(40)))
+	lang_btn.position = Vector2(fit.safe.end.x - fit.dp(130), fit.safe.position.y + fit.dp(8))
+
 func _draw() -> void:
+	var fit := ScreenFit.capture(self)
+	draw_rect(Rect2(Vector2.ZERO, fit.view), Color(0.012, 0.03, 0.016))
+	if fit.compact:
+		_draw_compact(fit)
+		return
+	draw_set_transform(fit.origin, 0, Vector2.ONE)
+	_draw_plate()
+	draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
+	if leaving > 0.0:
+		draw_rect(Rect2(Vector2.ZERO, fit.view), Color(1, 1, 1, clampf(leaving / 0.6, 0, 1) * 0.9))
+
+func _draw_plate() -> void:
 	# Key art with a slow breathing drift
 	var drift := Vector2(sin(t * 0.2) * 6.0, cos(t * 0.17) * 4.0).round()
 	draw_texture_rect(art, Rect2(Vector2(-8, -8) + drift, Vector2(1296, 736)), false)
@@ -140,9 +194,65 @@ func _draw() -> void:
 	var hint := I18n.t("title.hint", {"confirm": GameInput.hint("confirm")})
 	U.draw_text(self, hint, Vector2(0, 700), 14, Color(U.TEXT, 0.55 + 0.25 * sin(t * 3.0)), "medium", HORIZONTAL_ALIGNMENT_RIGHT, 1256)
 	U.draw_text(self, "v1.0 · " + I18n.t("title.original"), Vector2(1256 - 400, 676), 12, Color(U.MUTED, 0.8), "medium", HORIZONTAL_ALIGNMENT_RIGHT, 400)
-	# Launch flash
+	_faction_strip(Rect2(480, 566, 740, 92), 12)
+
+func _draw_compact(fit: ScreenFit) -> void:
+	var drift := Vector2(sin(t * 0.2) * 4.0, cos(t * 0.17) * 3.0)
+	draw_texture_rect(art, Rect2(drift, fit.view), false, Color(0.55, 0.6, 0.7, 0.55))
+	draw_rect(Rect2(Vector2.ZERO, fit.view), Color(0.01, 0.03, 0.02, 0.72))
+	for s: Vector3 in stars:
+		if s.x > fit.view.x or s.y > fit.view.y:
+			continue
+		draw_rect(Rect2(Vector2(s.x, s.y).floor(), Vector2(2, 2)), Color(0.8, 0.9, 0.75, 0.35 + s.z * 0.4))
+	var appear := clampf(t / 0.8, 0, 1)
+	if fit.portrait:
+		# The language button owns the top-right corner. The title starts under it.
+		var ly := fit.safe.position.y + fit.dp(86)
+		var title_px := int(fit.dp(30))
+		U.draw_text(self, I18n.t("game.title_short"), Vector2(fit.safe.position.x, ly), title_px, Color(1, 1, 1, appear), "title", HORIZONTAL_ALIGNMENT_CENTER, fit.safe.size.x)
+		U.draw_text(self, I18n.t("brand.sub"), Vector2(fit.safe.position.x, ly + fit.dp(28)), int(fit.dp(13)), Color(U.CYAN, appear), "display", HORIZONTAL_ALIGNMENT_CENTER, fit.safe.size.x)
+		U.draw_text(self, I18n.t("title.tagline"), Vector2(fit.safe.position.x + fit.dp(16), ly + fit.dp(52)), int(fit.dp(13)), Color(U.TEXT, appear * 0.9), "medium", HORIZONTAL_ALIGNMENT_CENTER, fit.safe.size.x - fit.dp(32))
+		_faction_strip(Rect2(fit.safe.position.x + fit.dp(8), ly + fit.dp(78), fit.safe.size.x - fit.dp(16), fit.dp(86)), int(fit.dp(11)))
+		var br := Rect2(fit.safe.position.x + fit.dp(16), fit.safe.end.y - fit.dp(78), fit.safe.size.x - fit.dp(32), fit.dp(64))
+		_best_plate(br, int(fit.dp(13)), int(fit.dp(22)))
+	else:
+		var ly := fit.safe.position.y + fit.dp(28)
+		var left_w := fit.safe.size.x * 0.50
+		U.draw_text(self, I18n.t("game.title_short"), Vector2(fit.safe.position.x + fit.dp(12), ly), int(fit.dp(26)), Color(1, 1, 1, appear), "title", HORIZONTAL_ALIGNMENT_LEFT, left_w)
+		U.draw_text(self, I18n.t("brand.sub"), Vector2(fit.safe.position.x + fit.dp(12), ly + fit.dp(24)), int(fit.dp(12)), Color(U.CYAN, appear), "display")
+		U.draw_text(self, I18n.t("title.tagline"), Vector2(fit.safe.position.x + fit.dp(12), ly + fit.dp(46)), int(fit.dp(12)), Color(U.TEXT, appear * 0.9), "medium", HORIZONTAL_ALIGNMENT_LEFT, left_w - fit.dp(16))
+		_faction_strip(Rect2(fit.safe.position.x + fit.dp(12), ly + fit.dp(62), left_w - fit.dp(24), fit.dp(78)), int(fit.dp(11)))
+		var br := Rect2(fit.safe.position.x + fit.dp(12), fit.safe.end.y - fit.dp(62), left_w - fit.dp(24), fit.dp(52))
+		_best_plate(br, int(fit.dp(12)), int(fit.dp(18)))
 	if leaving > 0.0:
-		draw_rect(Rect2(0, 0, 1280, 720), Color(1, 1, 1, clampf(leaving / 0.6, 0, 1) * 0.9))
+		draw_rect(Rect2(Vector2.ZERO, fit.view), Color(1, 1, 1, clampf(leaving / 0.6, 0, 1) * 0.9))
+
+func _best_plate(br: Rect2, label_px: int, value_px: int) -> void:
+	U.draw_panel(self, br, U.GOLD, Color(0.05, 0.04, 0.12, 0.85))
+	U.draw_text(self, I18n.t("title.best"), Vector2(br.position.x + 14, br.position.y + label_px + 8), label_px, U.MUTED, "bold")
+	var best := SaveData.best_score
+	U.draw_text(self, "—" if best <= 0 else _fmt(best), Vector2(br.position.x + 14, br.end.y - 12), value_px, U.GOLD, "display")
+	if SaveData.best_rank != "":
+		U.draw_text(self, I18n.t("res.rank") + " " + SaveData.best_rank, Vector2(br.position.x + 14, br.position.y + label_px + 8), label_px, U.TEXT, "bold", HORIZONTAL_ALIGNMENT_RIGHT, br.size.x - 28)
+
+func _faction_strip(area: Rect2, label_px := 11) -> void:
+	var n := FactionMarks.ALL.size()
+	var gap := maxf(4.0, label_px * 0.4)
+	var label_h := float(label_px) + 6.0
+	var cell := (area.size.x - gap * (n - 1)) / n
+	if cell < 12.0:
+		return
+	var fh := minf(cell / 1.5, area.size.y - label_h)
+	if fh < 10.0:
+		return
+	var fw := fh * 1.5
+	var total := n * fw + (n - 1) * gap
+	var x := area.position.x + (area.size.x - total) * 0.5
+	var y := area.position.y
+	for row: Array in FactionMarks.ALL:
+		FactionMarks.draw(self, str(row[0]), Rect2(x, y, fw, fh))
+		U.draw_text(self, str(row[1]), Vector2(x - 6, y + fh + label_h - 2.0), label_px, U.TEXT, "bold", HORIZONTAL_ALIGNMENT_CENTER, fw + 12)
+		x += fw + gap
 
 func _fmt(v: int) -> String:
 	var s := str(v)

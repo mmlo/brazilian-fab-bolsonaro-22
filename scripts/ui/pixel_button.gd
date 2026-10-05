@@ -8,6 +8,12 @@ var font_size := 22
 var _t := 0.0
 var _press := 0.0
 
+func apply_metrics(px: int, min_size: Vector2) -> void:
+	font_size = maxi(px, 10)
+	custom_minimum_size = min_size
+	if is_node_ready():
+		add_theme_font_size_override("font_size", font_size)
+
 func _init(label := "", accent_color := PixelUI.CYAN, size := 22) -> void:
 	text = label
 	accent = accent_color

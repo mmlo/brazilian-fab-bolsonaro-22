@@ -67,7 +67,23 @@ func _refresh_text() -> void:
 	for r: OptionRow in _rows:
 		r.refresh()
 
+func apply_fit(fit: ScreenFit) -> void:
+	var px := 18
+	var h := 46.0
+	var w := 540.0
+	if fit.compact:
+		px = int(fit.dp(15 if fit.portrait else 14))
+		h = fit.dp(44 if fit.portrait else 34)
+		w = minf(fit.safe.size.x - fit.dp(28), fit.dp(480))
+	_title.add_theme_font_size_override("font_size", int(px * 1.45))
+	for r: OptionRow in _rows:
+		r.apply_row_metrics(px, h, w)
+	_legend.visible = not fit.compact or fit.portrait
+	_legend.custom_minimum_size = Vector2(w, 0)
+	_back.apply_metrics(px, Vector2(w, h + 4.0))
+
 func open() -> void:
+	apply_fit(ScreenFit.capture(self))
 	show()
 	for r: OptionRow in _rows:
 		r.refresh()

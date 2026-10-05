@@ -12,6 +12,13 @@ var _box: HBoxContainer
 var _label: Label
 var _value: Label
 
+func apply_row_metrics(px: int, min_h: float, width: float) -> void:
+	apply_metrics(px, Vector2(width, min_h))
+	if _label != null:
+		_label.add_theme_font_size_override("font_size", font_size)
+		_value.add_theme_font_size_override("font_size", font_size)
+		_value.custom_minimum_size = Vector2(width * 0.36, 0)
+
 func _init(key: String, slider_steps := 0, choice_list: Array = []) -> void:
 	super._init("", PixelUI.CYAN, 18)
 	label_key = key

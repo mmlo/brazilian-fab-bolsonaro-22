@@ -55,6 +55,16 @@ func _process(delta: float) -> void:
 func _centered(t: Texture2D, p: Vector2, mod := Color.WHITE) -> void:
 	draw_texture(t, (p - t.get_size() * 0.5).round(), mod)
 
+func _draw_enemy_flag(e) -> void:
+	if str(e.flag) == "":
+		return
+	var big: bool = str(e.kind) == "carrier" or str(e.kind) == "frigate"
+	var sz := Vector2(22, 14) if big else Vector2(15, 10)
+	var lift := float(e.data["radius"]) + sz.y * 0.35
+	var bob := sin(game.sim_time * 7.0 + float(e.pos.x) * 0.15) * 0.8
+	var at := Vector2(e.pos) + Vector2(-sz.x * 0.5, -lift - sz.y + bob)
+	FactionMarks.draw(self, str(e.flag), Rect2(at.round(), sz))
+
 # ------------------------------------------------------------------ base layer
 func _draw() -> void:
 	if game == null:
@@ -99,6 +109,7 @@ func _draw() -> void:
 			_centered(et, e.pos)
 			if e.flash > 0.0:
 				_centered(tex[sprite + "_flash"], e.pos, Color(1, 1, 1, 0.85))
+		_draw_enemy_flag(e)
 		# damage smoke on heavy units
 		if e.max_hp >= 60.0 and e.hp < e.max_hp * 0.5 and randf() < 0.3:
 			game._spawn_particle(e.pos + Vector2(randf_range(-10, 10), randf_range(-8, 8)), Vector2(0, -20), 0.5, Color(0.3, 0.28, 0.35, 0.7), 3, 2.0, 4.0, false, 1.0)
@@ -112,9 +123,15 @@ func _draw() -> void:
 		if game.boss_breaking > 0.0 and fmod(game.boss_breaking, 0.16) < 0.05:
 			visible = false
 		if visible:
+			var bob := sin(game.sim_time * 5.0) * 0.6
+			FactionMarks.draw(self, "pt", Rect2(bp + Vector2(-18, -38 + bob), Vector2(36, 24)))
 			_centered(bt, bp)
 			if game.boss_flash > 0.0:
 				_centered(tex[game.boss_sprite + "_flash"], bp, Color(1, 1, 1, 0.42))
+			FactionMarks.draw(self, "cut", Rect2(bp + Vector2(-100, -6 + bob), Vector2(18, 12)))
+			FactionMarks.draw(self, "mst", Rect2(bp + Vector2(82, -6 - bob), Vector2(18, 12)))
+			FactionMarks.draw(self, "mtst", Rect2(bp + Vector2(-78, 10), Vector2(14, 9)))
+			FactionMarks.draw(self, "pcdob", Rect2(bp + Vector2(64, 10), Vector2(14, 9)))
 	# Player shots
 	var st: Texture2D = tex["shot_player"]
 	for s in game.shots:

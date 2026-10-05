@@ -8,8 +8,7 @@ var _buttons := {}
 var _settings: SettingsPanel
 
 func _ready() -> void:
-	position = Vector2.ZERO
-	size = Vector2(1280, 720)
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	hide()
 	var dim := ColorRect.new()
@@ -61,8 +60,36 @@ func _refresh() -> void:
 	for id: String in _buttons:
 		_buttons[id].text = I18n.t("pause." + id)
 
+var _fit_sig := ""
+
+func _process(_delta: float) -> void:
+	if not visible:
+		return
+	var fit := ScreenFit.capture(self)
+	var sig := "%s|%s" % [fit.view, fit.compact]
+	if sig == _fit_sig:
+		return
+	_fit_sig = sig
+	_apply_fit()
+	if _settings.visible:
+		_settings.apply_fit(fit)
+
+func _apply_fit() -> void:
+	var fit := ScreenFit.capture(self)
+	var w := 380.0
+	var h := 54.0
+	var px := 22
+	if fit.compact:
+		w = minf(fit.safe.size.x - fit.dp(36), fit.dp(420))
+		h = fit.dp(50 if fit.portrait else 40)
+		px = int(fit.dp(16))
+	for id: String in _buttons:
+		(_buttons[id] as PixelButton).apply_metrics(px, Vector2(w, h))
+	_title.add_theme_font_size_override("font_size", int(px * 1.55))
+
 func open() -> void:
 	_refresh()
+	_apply_fit()
 	_buttons["skip"].visible = game.tutorial_active
 	show()
 	_panel.show()
